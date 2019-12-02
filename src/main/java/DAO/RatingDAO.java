@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DAO;
 
 import Conexion.Conexion;
@@ -14,10 +10,6 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- *
- * @author liliana.gironusam
- */
 public class RatingDAO {
     
     Conexion conn;
@@ -73,7 +65,7 @@ public class RatingDAO {
 
     public boolean Actualizar(RatingBean ratb) {
 
-        String sql = "update cargo set nombrerating=?, descripcion=? where idrating=?";
+        String sql = "update rating set nombrerating=?, descripcion=? where idrating=?";
 
          try {
             ps = conn.conectar().prepareStatement(sql);

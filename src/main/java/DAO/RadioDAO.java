@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DAO;
 
 import Conexion.Conexion;
@@ -15,10 +11,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- *
- * @author liliana.gironusam
- */
+
 public class RadioDAO {
 
     Conexion conn;
@@ -92,7 +85,7 @@ public class RadioDAO {
 
     public boolean Actualizar(RadioBean radb) {
 
-        String sql = "update cargo set nombreradio=?, descripcion=?, idfrecuencia=?, idconsorcio=? where idradio=?";
+        String sql = "update radio set nombreradio=?, descripcion=?, idfrecuencia=?, idconsorcio=? where idradio=?";
 
         conb = new ConsorcioBean();
         frecb = new FrecuenciaBean();
