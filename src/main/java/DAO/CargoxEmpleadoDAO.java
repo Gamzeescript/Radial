@@ -21,8 +21,8 @@ public class CargoxEmpleadoDAO {
         this.conn = conn;
     }
 
-    public List<CargoBean> mostrar() throws SQLException {
-        List<CargoBean> lista = new LinkedList<>();
+    public List<CargoxEmpleadoBean> mostrar() throws SQLException {
+        List<CargoxEmpleadoBean> lista = new LinkedList<>();
 
         String sql = "select c.nombrecargo, e.nombre from cargoxempleado ce\n"
                 + "left join cargo c on ce.idcargo = c.idcargo \n"
