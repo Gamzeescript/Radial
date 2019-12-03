@@ -1,86 +1,190 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 
+import Conexion.Conexion;
+import DAO.EmisionDAO;
+import DAO.ProgramaDAO;
+import Modelo.EmisionBean;
+import Modelo.ProgramaBean;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author liliana.gironusam
- */
+
 public class EmisionServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
+    Conexion conn = new Conexion();
+    RequestDispatcher rd;
+    String msg = "";
+    boolean res;
+    SimpleDateFormat ffechai;
+    SimpleDateFormat fhorai;
+    SimpleDateFormat ffechaf;
+    SimpleDateFormat fhoraf;
+    List<EmisionBean> lista = new LinkedList<>();
+    EmisionDAO emd = new EmisionDAO(conn);
+    ProgramaDAO prod = new ProgramaDAO(conn);
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EmisionServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EmisionServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            throws ServletException, IOException, ParseException, SQLException {
+        String action = request.getParameter("action");
+        switch (action) {
+            case "insertar":
+                insertar(request, response);
+                break;
+            case "mostrar":
+                mostrar(request, response);
+                break;
+            case "actualizar":
+                actualizar(request, response);
+                break;
+            case "eliminar":
+                eliminar(request, response);
+                break;
+            default:
+                throw new AssertionError();
         }
+
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    protected void insertar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ParseException, SQLException {
+
+        ffechai = new SimpleDateFormat("yyyy-MM-dd");
+        fhorai = new SimpleDateFormat("HH:mm");
+        ffechaf = new SimpleDateFormat("yyyy-MM-dd");
+        fhoraf = new SimpleDateFormat("HH:mm");
+
+        ProgramaBean prob = new ProgramaBean();
+
+        int idprograma = Integer.parseInt(request.getParameter("idprograma"));
+        Date fechainicio = ffechai.parse("fechainicio");
+        Date horainicio = fhorai.parse("horainicio");
+        Date fechafin = ffechaf.parse("fechafin");
+        Date horafin = fhoraf.parse("horafin");
+        boolean repeticion = Boolean.parseBoolean(request.getParameter("repeticion"));
+
+        EmisionBean emb = new EmisionBean(0);
+        prob.setIdprograma(idprograma);
+        emb.setIdprograma(prob);
+        emb.setFechainicio(fechainicio);
+        emb.setHorainicio(horainicio);
+        emb.setFechafin(fechafin);
+        emb.setHorafin(horafin);
+        emb.setRepeticion(repeticion);
+
+        res = emd.insertar(emb);
+        lista = emd.mostrar();
+
+        request.setAttribute("listaprograma", prod.mostrar());
+        request.setAttribute("lista", lista);
+        rd = request.getRequestDispatcher("/detalleemision.jsp");
+        rd.forward(request, response);
+
+    }
+
+    protected void mostrar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
+
+        lista = emd.mostrar();
+
+        request.setAttribute("listaprograma", prod.mostrar());
+        request.setAttribute("lista", lista);
+        rd = request.getRequestDispatcher("/detalleemision.jsp");
+        rd.forward(request, response);
+
+    }
+
+    protected void actualizar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ParseException, SQLException {
+
+        ffechai = new SimpleDateFormat("yyyy-MM-dd");
+        fhorai = new SimpleDateFormat("HH:mm");
+        ffechaf = new SimpleDateFormat("yyyy-MM-dd");
+        fhoraf = new SimpleDateFormat("HH:mm");
+
+        ProgramaBean prob = new ProgramaBean();
+       
+        int idemision = Integer.parseInt(request.getParameter("idemision"));
+        int idprograma = Integer.parseInt(request.getParameter("idprograma"));
+        Date fechainicio = ffechai.parse("fechainicio");
+        Date horainicio = fhorai.parse("horainicio");
+        Date fechafin = ffechaf.parse("fechafin");
+        Date horafin = fhoraf.parse("horafin");
+        boolean repeticion = Boolean.parseBoolean(request.getParameter("repeticion"));
+
+        EmisionBean emb = new EmisionBean(idemision);
+        prob.setIdprograma(idprograma);
+        emb.setIdprograma(prob);
+        emb.setFechainicio(fechainicio);
+        emb.setHorainicio(horainicio);
+        emb.setFechafin(fechafin);
+        emb.setHorafin(horafin);
+        emb.setRepeticion(repeticion);
+
+        res = emd.Actualizar(emb);
+        lista = emd.mostrar();
+
+        request.setAttribute("listaprograma", prod.mostrar());
+        request.setAttribute("lista", lista);
+        rd = request.getRequestDispatcher("/detalleemision.jsp");
+        rd.forward(request, response);
+
+
+    }
+
+    protected void eliminar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
+
+        int idemision = Integer.parseInt(request.getParameter("idemision"));
+
+        res = emd.eliminar(idemision);
+        lista = emd.mostrar();
+
+        request.setAttribute("listaprograma", prod.mostrar());
+        request.setAttribute("lista", lista);
+        rd = request.getRequestDispatcher("/detalleemision.jsp");
+        rd.forward(request, response);
+
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(EmisionServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EmisionServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(EmisionServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EmisionServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }
