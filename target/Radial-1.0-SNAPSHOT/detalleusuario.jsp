@@ -14,7 +14,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> 
-        <title>Registro Peliculas</title>
+        <title>Radio Hazbin</title>
     </head>
     <body>
         <!-- seccion de menu -->
@@ -106,39 +106,33 @@
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-8">
-                    <h1>Listado de Peliculas</h1>
+                    <h1>Listado de Consorcios</h1>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <td>id Pelicula</td>
-                                <td>Titulo</td>
-                                <td>Idioma</td>
-                                <td>Pais</td>
-                                <td>Anio</td>
-                                <td>Duracion</td>
-                                <td>Clasificacion</td>
-                                <td>Fecha de Estreno</td>
-                                <td>Descripcion</td>
-                                <td>Imagen</td>
+                                <td>id UsuRIO</td>
+                                <td>Nombre</td>
+                                <td>Apellido</td>
+                                <td>Usuario</td>
+                                <td>Pass</td>
+                                <td>Email</td>
+                                <td>Telefono</td>
                                 <td>Acciones</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${lista}" var="p">
+                            <c:forEach items="${lista}" var="u">
                                 <tr>
-                                    <td>${p.idpelicula}</td>
-                                    <td>${p.idtitulo.titulooriginal}</td>
-                                    <td>${p.ididioma.nombreidioma}</td>
-                                    <td>${p.idpais.nombrepais}</td>
-                                    <td>${p.anio}</td>
-                                    <td>${p.duracion}</td>
-                                    <td>${p.idclasificacion.nombreclasificacion}</td>
-                                    <td>${p.fechaestreno}</td>
-                                    <td>${p.descripcion}</td>
-                                    <td>${p.imagen}</td>
+                                    <td>${u.idusuario}</td>
+                                    <td>${u.nombre}</td>
+                                    <td>${u.apellido}</td>
+                                    <td>${u.usuario}</td>
+                                    <td>${u.pass}</td>
+                                    <td>${u.email}</td>
+                                    <td>${u.telefono}</td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${p.idpelicula}', '${p.idtitulo}', '${p.ididioma}', '${p.idpais}', '${p.anio}', '${p.duracion}', '${p.idclasificacion}', '${p.fechaestreno}', '${p.descripcion}', '${p.imagen}')">Actualizar</button>
-                                        <button type="button" class="btn btn-outline-danger"  onclick="alerta_eliminar(${p.idpelicula})"><a>Eliminar</a></button>
+                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${con.idusuario}', '${con.nombre}', '${u.apellido}', '${u.usuario}', '${u.pass}', '${u.email}', '${u.telefono}')">Actualizar</button>
+                                        <button type="button" class="btn btn-outline-danger"  onclick="alerta_eliminar(${u.idusuario})"><a>Eliminar</a></button>
                                     </td>
                                 </tr>
                             </c:forEach>                                
@@ -146,7 +140,7 @@
                     </table>    
                     <br><br>
                     <!-- Trigger -->
-                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Agregar  pelicula</button>
+                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Agregar  Consorcio</button>
 
                     </div>
                 
@@ -155,62 +149,37 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Registrar Pelicula</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Registrar Usuario</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form  method="POST" action="pelicula?action=insertar">
+                                    <form  method="POST" action="usuario?action=insertar">
                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
+                                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                                            <input type="text" class="form-control" name="nombre" type="text" max="2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
+                                            <label for="recipient-name" class="col-form-label">Apellido:</label>
+                                            <input type="text" class="form-control" name="apellido" type="text" max="2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
+                                            <label for="recipient-name" class="col-form-label">Usuario:</label>
+                                            <input type="text" class="form-control" name="usuario" type="text" max="2">
+                                        </div>
+                                        div class="form-group">
+                                            <label for="recipient-name" class="col-form-label">Password:</label>
+                                            <input type="text" class="form-control" name="pass" type="password" max="2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">edad:</label>
-                                            <input type="text" class="form-control" name="edad" type="number" max="2">
-                                        </div>
-                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">email:</label>
-                                            <input type="text" class="form-control" name="email">
+                                            <label for="recipient-name" class="col-form-label">Email:</label>
+                                            <input type="text" class="form-control" name="email" type="text" max="2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
+                                            <label for="recipient-name" class="col-form-label">Telefono:</label>
+                                            <input type="text" class="form-control" name="telefono" type="text" max="2">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">edad:</label>
-                                            <input type="text" class="form-control" name="edad" type="number" max="2">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">edad:</label>
-                                            <input type="text" class="form-control" name="edad" type="number" max="2">
-                                        </div>
-                                        
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>
                                             <button class="btn btn-outline-info" onclick="reload(true)">Guardar</button>
@@ -236,40 +205,44 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">Actualizar Usuarios</h5>
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Actualizar usuario</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
                                     <form  method="POST" action="usuario?action=actualizar">
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">id usuario:</label>
-                                            <input type="text" class="form-control" name="idusuario" id="idusuario" readonly="readonly">
+                                         <div class="form-group">
+                                            <label for="recipient-name" class="col-form-label">Id usuario:</label>
+                                            <input type="text" class="form-control" name="idusuario" id="idusuario" type="text" max="2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Nombre:</label>
-                                            <input type="text" class="form-control" name="nombre" id="nombre">
+                                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                                            <input type="text" class="form-control" name="nombre" id="nombre" type="text" max="2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Apellido:</label>
-                                           <input type="text" class="form-control" name="apellido" id="apellido">
+                                            <label for="recipient-name" class="col-form-label">Apellido:</label>
+                                            <input type="text" class="form-control" name="apellido" id="apellido" type="text" max="2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Usuario:</label>
-                                            <input type="text" class="form-control" name="usuario" id="usuario">
+                                            <label for="recipient-name" class="col-form-label">Usuario:</label>
+                                            <input type="text" class="form-control" name="usuario" id="usuario" type="text" max="2">
+                                        </div>
+                                        div class="form-group">
+                                            <label for="recipient-name" class="col-form-label">Password:</label>
+                                            <input type="text" class="form-control" name="pass" id="pass" type="password" max="2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Edad:</label>
-                                            <input type="text" class="form-control" name="edad" id="edad">
+                                            <label for="recipient-name" class="col-form-label">Email:</label>
+                                            <input type="text" class="form-control" name="email" id="email" type="text" max="2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Email:</label>
-                                            <input type="text" class="form-control" name="email" id="email">
+                                            <label for="recipient-name" class="col-form-label">Telefono:</label>
+                                            <input type="text" class="form-control" name="telefono" id="telefono" type="text" max="2">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>
-                                            <button class="btn btn-outline-info" onclick="reload(true)">Actualizar</button>
+                                            <button class="btn btn-outline-info" onclick="reload(true)">Guardar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -289,15 +262,16 @@
                     </script>
 
                     <script type="text/javascript">
-                        function editar(idusuario, nombre, apellido, usuario, edad, email) {
+                        function editar(idusuario, nombre, apellido, usuario, pass, email, telefono) {
 
                             /* Tomando los valores desde el javascript */
                             document.getElementById("idusuario").value = idusuario;
                             document.getElementById("nombre").value = nombre;
                             document.getElementById("apellido").value = apellido;
                             document.getElementById("usuario").value = usuario;
-                            document.getElementById("edad").value = edad;
+                            document.getElementById("pass").value = pass;
                             document.getElementById("email").value = email;
+                            document.getElementById("telefono").value = telefono;
 
                         }
                     </script>

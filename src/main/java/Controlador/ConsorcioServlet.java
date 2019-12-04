@@ -48,9 +48,9 @@ public class ConsorcioServlet extends HttpServlet {
     protected void insertar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
 
-        String nombreconsorcio = request.getParameter("nombrerating");
-        String rfc = request.getParameter("nombrerating");
-        String telefono = request.getParameter("descripcion");
+        String nombreconsorcio = request.getParameter("nombreconsorcio");
+        String rfc = request.getParameter("rfc");
+        String telefono = request.getParameter("telefono");
 
         ConsorcioBean conb = new ConsorcioBean(0);
         conb.setNombreconsorcio(nombreconsorcio);
@@ -82,10 +82,10 @@ public class ConsorcioServlet extends HttpServlet {
             throws ServletException, IOException, SQLException {
 
         int idconsorcio = Integer.parseInt(request.getParameter("idconsorcio"));
-        String nombreconsorcio = request.getParameter("nombrerating");
-        String rfc = request.getParameter("nombrerating");
-        String telefono = request.getParameter("descripcion");
-
+        String nombreconsorcio = request.getParameter("nombreconsorcio");
+        String rfc = request.getParameter("rfc");
+        String telefono = request.getParameter("telefono");
+        
         ConsorcioBean conb = new ConsorcioBean(idconsorcio);
         conb.setNombreconsorcio(nombreconsorcio);
         conb.setRfc(rfc);

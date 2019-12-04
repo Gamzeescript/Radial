@@ -83,6 +83,10 @@ public class TransmisionServlet extends HttpServlet {
         int idtransmision = Integer.parseInt(request.getParameter("idtransmision"));
         String nombretransmision = request.getParameter("nombretransmision");
         String descripcion = request.getParameter("descripcion");
+        
+        System.out.println(idtransmision);
+        System.out.println(nombretransmision);
+        System.out.println(descripcion);
 
         TransmisionBean transb = new TransmisionBean(idtransmision);
         transb.setNombretransmision(nombretransmision);
