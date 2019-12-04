@@ -76,9 +76,9 @@ public class TransmisionDAO {
 
         try {
             ps = conn.conectar().prepareStatement(sql);
-            ps.setInt(1, transb.getIdtransmision());
-            ps.setString(2, transb.getNombretransmision());
-            ps.setString(3, transb.getDescripcion());
+            ps.setString(1, transb.getNombretransmision());
+            ps.setString(2, transb.getDescripcion());
+            ps.setInt(3, transb.getIdtransmision());
             ps.executeUpdate();
             
             return true;

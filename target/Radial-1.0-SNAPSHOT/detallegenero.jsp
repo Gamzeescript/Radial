@@ -14,7 +14,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> 
-        <title>Registro Peliculas</title>
+        <title>Radio Hazbin</title>
     </head>
     <body>
         <!-- seccion de menu -->
@@ -106,39 +106,23 @@
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-8">
-                    <h1>Listado de Peliculas</h1>
+                    <h1>Listado de Generos</h1>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <td>id Pelicula</td>
-                                <td>Titulo</td>
-                                <td>Idioma</td>
-                                <td>Pais</td>
-                                <td>Anio</td>
-                                <td>Duracion</td>
-                                <td>Clasificacion</td>
-                                <td>Fecha de Estreno</td>
-                                <td>Descripcion</td>
-                                <td>Imagen</td>
+                                <td>id Genero</td>
+                                <td>Genero</td>
                                 <td>Acciones</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${lista}" var="p">
+                            <c:forEach items="${lista}" var="g">
                                 <tr>
-                                    <td>${p.idpelicula}</td>
-                                    <td>${p.idtitulo.titulooriginal}</td>
-                                    <td>${p.ididioma.nombreidioma}</td>
-                                    <td>${p.idpais.nombrepais}</td>
-                                    <td>${p.anio}</td>
-                                    <td>${p.duracion}</td>
-                                    <td>${p.idclasificacion.nombreclasificacion}</td>
-                                    <td>${p.fechaestreno}</td>
-                                    <td>${p.descripcion}</td>
-                                    <td>${p.imagen}</td>
+                                    <td>${g.idgenero}</td>
+                                    <td>${g.nombregenero}</td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${p.idpelicula}', '${p.idtitulo}', '${p.ididioma}', '${p.idpais}', '${p.anio}', '${p.duracion}', '${p.idclasificacion}', '${p.fechaestreno}', '${p.descripcion}', '${p.imagen}')">Actualizar</button>
-                                        <button type="button" class="btn btn-outline-danger"  onclick="alerta_eliminar(${p.idpelicula})"><a>Eliminar</a></button>
+                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${g.idgenero}', '${g.nombregenero}')">Actualizar</button>
+                                        <button type="button" class="btn btn-outline-danger"  onclick="alerta_eliminar(${g.idgenero})"><a>Eliminar</a></button>
                                     </td>
                                 </tr>
                             </c:forEach>                                
@@ -146,7 +130,7 @@
                     </table>    
                     <br><br>
                     <!-- Trigger -->
-                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Agregar  pelicula</button>
+                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Agregar  Genero</button>
 
                     </div>
                 
@@ -155,62 +139,17 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Registrar Pelicula</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Registrar Consorcio</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form  method="POST" action="pelicula?action=insertar">
+                                    <form  method="POST" action="genero?action=insertar">
                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
+                                            <label for="recipient-name" class="col-form-label">Nombre Genero:</label>
+                                            <input type="text" class="form-control" name="nombregenero" type="text" max="2">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">edad:</label>
-                                            <input type="text" class="form-control" name="edad" type="number" max="2">
-                                        </div>
-                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">email:</label>
-                                            <input type="text" class="form-control" name="email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">edad:</label>
-                                            <input type="text" class="form-control" name="edad" type="number" max="2">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">edad:</label>
-                                            <input type="text" class="form-control" name="edad" type="number" max="2">
-                                        </div>
-                                        
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>
                                             <button class="btn btn-outline-info" onclick="reload(true)">Guardar</button>
@@ -236,40 +175,24 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">Actualizar Usuarios</h5>
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Actualizar Genero</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form  method="POST" action="usuario?action=actualizar">
+                                    <form  method="POST" action="genero?action=actualizar">
                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">id usuario:</label>
-                                            <input type="text" class="form-control" name="idusuario" id="idusuario" readonly="readonly">
+                                            <label for="recipient-name" class="col-form-label">Id Genero:</label>
+                                            <input type="text" class="form-control" name="idgenero" id="idgenero" readonly="readonly" type="number" max="2">
                                         </div>
                                         <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Nombre:</label>
-                                            <input type="text" class="form-control" name="nombre" id="nombre">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Apellido:</label>
-                                           <input type="text" class="form-control" name="apellido" id="apellido">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Usuario:</label>
-                                            <input type="text" class="form-control" name="usuario" id="usuario">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Edad:</label>
-                                            <input type="text" class="form-control" name="edad" id="edad">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Email:</label>
-                                            <input type="text" class="form-control" name="email" id="email">
+                                            <label for="recipient-name" class="col-form-label">Nombre:</label>
+                                            <input type="text" class="form-control" name="nombregenero" id="nombregenero" type="number" max="2">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>
-                                            <button class="btn btn-outline-info" onclick="reload(true)">Actualizar</button>
+                                            <button class="btn btn-outline-info" onclick="reload(true)">Guardar</button>
                                         </div>
                                     </form>
                                 </div>
@@ -289,20 +212,16 @@
                     </script>
 
                     <script type="text/javascript">
-                        function editar(idusuario, nombre, apellido, usuario, edad, email) {
+                        function editar(idgenero, nombregenero) {
 
                             /* Tomando los valores desde el javascript */
-                            document.getElementById("idusuario").value = idusuario;
-                            document.getElementById("nombre").value = nombre;
-                            document.getElementById("apellido").value = apellido;
-                            document.getElementById("usuario").value = usuario;
-                            document.getElementById("edad").value = edad;
-                            document.getElementById("email").value = email;
+                            document.getElementById("idgenero").value = idgenero;
+                            document.getElementById("nombregenero").value = nombregenero;
 
                         }
                     </script>
                     <script>
-                          function alerta_eliminar(idusuario) {
+                          function alerta_eliminar(idgenero) {
                     Swal.fire({
                     title: 'De verdad, de verdad ¿quieres eliminar esta vaina?',
                     text: 'Sabemos de antemano que esta es una mala practica ¿Has pensado en solo ocultarlo? bueno... Procede si estas conciente de las consecuencias',
@@ -314,7 +233,7 @@
                     confirmButtonText: 'Si, Eliminar'
                 }).then((result) => {
                     if (result.value) {
-                        window.location.href = "usuario?action=eliminar&idusuario=" + idusuario;
+                        window.location.href = "genero?action=eliminar&idgenero=" + idgenero;
                     }
                 })
             }
