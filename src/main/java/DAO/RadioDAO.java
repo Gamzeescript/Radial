@@ -1,4 +1,3 @@
-
 package DAO;
 
 import Conexion.Conexion;
@@ -40,10 +39,12 @@ public class RadioDAO {
             ps.setInt(4, frecb.getIdfrecuencia());
             conb = radb.getIdconsorcio();
             ps.setInt(5, conb.getIdconsorcio());
+            System.out.println(ps);
             ps.executeUpdate();
 
             return true;
         } catch (Exception e) {
+            
             return false;
         }
 
@@ -52,7 +53,7 @@ public class RadioDAO {
     public List<RadioBean> mostrar() throws SQLException {
         List<RadioBean> lista = new LinkedList<>();
 
-        String sql = "select r.idradio, r.nombreradio, r.descripcion, f.nombrefrecuencia, t.nombretransmision, c.nombreconsorcio from radio r\n"
+        String sql = "select r.idradio, r.nombreradio, r.descripcion, f.nombrefrecuencia, c.nombreconsorcio from radio r\n"
                 + "inner join frecuencia f on r.idfrecuencia = f.idfrecuencia\n"
                 + "inner join consorcio c on r.idconsorcio = c.idconsorcio\n"
                 + "inner join transmision t on f.idtransmision = t.idtransmision";

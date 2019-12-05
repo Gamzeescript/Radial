@@ -1,4 +1,3 @@
-
 package DAO;
 
 import Conexion.Conexion;
@@ -32,6 +31,7 @@ public class UsuarioDAO {
             ps.setString(5, userb.getPass());
             ps.setString(6, userb.getEmail());
             ps.setString(7, userb.getTelefono());
+            System.out.println(ps);
             ps.executeUpdate();
             
             return true;
@@ -71,7 +71,7 @@ public class UsuarioDAO {
 
     public boolean Actualizar(UsuarioBean userb) {
 
-        String sql = "update cargo set nombre=?, apellido=?, usuario=?, pass=?, email=?, telefono=? where idcargo=?)";
+        String sql = "update usuario set nombre=?, apellido=?, usuario=?, pass=?, email=?, telefono=? where idusuario=?";
 
          try {
             ps = conn.conectar().prepareStatement(sql);
@@ -93,7 +93,7 @@ public class UsuarioDAO {
 
     public boolean eliminar(int idusuario) {
 
-        String sql = "delete from cargo where idusuario=?";
+        String sql = "delete from usuario where idusuario=?";
 
         try {
             ps = conn.conectar().prepareStatement(sql);

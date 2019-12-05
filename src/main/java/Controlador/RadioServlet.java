@@ -4,6 +4,7 @@ import Conexion.Conexion;
 import DAO.ConsorcioDAO;
 import DAO.FrecuenciaDAO;
 import DAO.RadioDAO;
+import DAO.TransmisionDAO;
 import Modelo.ConsorcioBean;
 import Modelo.FrecuenciaBean;
 import Modelo.RadioBean;
@@ -26,6 +27,7 @@ public class RadioServlet extends HttpServlet {
     RequestDispatcher rd;
     boolean res;
     RadioDAO radd = new RadioDAO(conn);
+    TransmisionDAO transd = new TransmisionDAO(conn);
     FrecuenciaDAO frecd = new FrecuenciaDAO(conn);
     ConsorcioDAO cond = new ConsorcioDAO(conn);
     List<RadioBean> lista = new LinkedList<>();
@@ -55,14 +57,16 @@ public class RadioServlet extends HttpServlet {
     protected void insertar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, SQLException {
 
-        FrecuenciaBean frecb = new FrecuenciaBean();
-        ConsorcioBean conb = new ConsorcioBean();
+        FrecuenciaBean frecb = new FrecuenciaBean(0);
+        ConsorcioBean conb = new ConsorcioBean(0);
 
         String nombreradio = request.getParameter("nombreradio");
         String descripcion = request.getParameter("descripcion");
         int idfrecuencia = Integer.parseInt(request.getParameter("idfrecuencia"));
-        int idconsorcio = Integer.parseInt(request.getParameter("idconscorcio"));
+        int idconsorcio = Integer.parseInt(request.getParameter("idconsorcio"));
 
+        System.out.println(nombreradio + descripcion + idfrecuencia + idconsorcio);
+        
         RadioBean radb = new RadioBean(0);
         radb.setNombreradio(nombreradio);
         radb.setDescripcion(descripcion);
@@ -75,6 +79,7 @@ public class RadioServlet extends HttpServlet {
         lista = radd.mostrar();
 
         request.setAttribute("lista", lista);
+        request.setAttribute("listatransmision", frecd.mostrar());
         request.setAttribute("listafrecuencia", frecd.mostrar());
         request.setAttribute("listaconsorcio", cond.mostrar());
         rd = request.getRequestDispatcher("/detalleradio.jsp");
@@ -89,6 +94,7 @@ public class RadioServlet extends HttpServlet {
 
         request.setAttribute("lista", lista);
         request.setAttribute("listafrecuencia", frecd.mostrar());
+        request.setAttribute("listatransmision", transd.mostrar());
         request.setAttribute("listaconsorcio", cond.mostrar());
         rd = request.getRequestDispatcher("/detalleradio.jsp");
         rd.forward(request, response);
@@ -106,7 +112,7 @@ public class RadioServlet extends HttpServlet {
         String nombreradio = request.getParameter("nombreradio");
         String descripcion = request.getParameter("descripcion");
         int idfrecuencia = Integer.parseInt(request.getParameter("idfrecuencia"));
-        int idconsorcio = Integer.parseInt(request.getParameter("idconscorcio"));
+        int idconsorcio = Integer.parseInt(request.getParameter("idconsorcio"));
 
         RadioBean radb = new RadioBean(idradio);
         radb.setNombreradio(nombreradio);

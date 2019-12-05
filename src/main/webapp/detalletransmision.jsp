@@ -232,8 +232,8 @@
                     <script>
                           function alerta_eliminar(idtransmision) {
                     Swal.fire({
-                    title: 'De verdad, de verdad ¿quieres eliminar esta vaina?',
-                    text: 'Sabemos de antemano que esta es una mala practica ¿Has pensado en solo ocultarlo? bueno... Procede si estas conciente de las consecuencias',
+                    title: 'ATENCION: esta a punto de borrar un registro',
+                    text: 'Esta accion no puede deshacerse',
                     icon: 'warning',
                     cancelButtonText: "Cancelar",
                     showCancelButton: true,

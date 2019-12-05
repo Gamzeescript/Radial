@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Conexion.Conexion;
@@ -14,10 +9,6 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- *
- * @author liliana.gironusam
- */
 public class FrecuenciaDAO {
 
     Conexion conn;
@@ -109,7 +100,7 @@ public class FrecuenciaDAO {
 
     public boolean eliminar(int idfrecuencia) {
 
-        String sql = "delete from cargo where idfrecuencia=?";
+        String sql = "delete from frecuencia where idfrecuencia=?";
 
         try {
             ps = conn.conectar().prepareStatement(sql);

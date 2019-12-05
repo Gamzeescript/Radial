@@ -24,7 +24,7 @@ public class ProgramaDAO {
 
     public boolean insertar(ProgramaBean Prob) {
 
-        String sql = "insert into radio values(?,?,?,?,?)";
+        String sql = "insert into programa values(?,?,?,?,?)";
 
         genb = new GeneroBean();
         radb = new RadioBean();
@@ -50,10 +50,9 @@ public class ProgramaDAO {
     public List<ProgramaBean> mostrar() throws SQLException {
         List<ProgramaBean> lista = new LinkedList<>();
 
-        String sql = "select pro.idprograma, pro.nombreprograma, pro.descripcion, g.nombregenero, c.nombreconsorcio from programa pro\n"
+        String sql = "select pro.idprograma, pro.nombreprograma, pro.descripcion, g.nombregenero, r.nombreradio from programa pro\n"
                 + "inner join genero g on pro.idgenero = g.idgenero\n"
-                + "inner join radio r on pro.idradio = r.idradio\n"
-                + "inner join consorcio c on r.idradio = c.idconsorcio";
+                + "inner join radio r on pro.idradio = r.idradio";
 
         try {
             ps = conn.conectar().prepareStatement(sql);
@@ -70,7 +69,7 @@ public class ProgramaDAO {
                 prob.setDescripcion(rs.getString(3));
                 genb.setNombregenero(rs.getString(4));
                 prob.setIdgenero(genb);
-                radb.setIdradio(rs.getInt(5));
+                radb.setNombreradio(rs.getString(5));
                 prob.setIdradio(radb);
                 lista.add(prob);
             }
