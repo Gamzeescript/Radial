@@ -106,11 +106,11 @@
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-8">
-                    <h1>Listado de Consorcios</h1>
+                    <h1>Listado de Usuarios</h1>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <td>id UsuRIO</td>
+                                <td>id Usuario</td>
                                 <td>Nombre</td>
                                 <td>Apellido</td>
                                 <td>Usuario</td>
@@ -131,7 +131,7 @@
                                     <td>${u.email}</td>
                                     <td>${u.telefono}</td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${con.idusuario}', '${con.nombre}', '${u.apellido}', '${u.usuario}', '${u.pass}', '${u.email}', '${u.telefono}')">Actualizar</button>
+                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${u.idusuario}', '${u.nombre}', '${u.apellido}', '${u.usuario}', '${u.pass}', '${u.email}', '${u.telefono}')">Actualizar</button>
                                         <button type="button" class="btn btn-outline-danger"  onclick="alerta_eliminar(${u.idusuario})"><a>Eliminar</a></button>
                                     </td>
                                 </tr>
@@ -140,7 +140,7 @@
                     </table>    
                     <br><br>
                     <!-- Trigger -->
-                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Agregar  Consorcio</button>
+                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Agregar  Usuario</button>
 
                     </div>
                 
@@ -158,27 +158,27 @@
                                     <form  method="POST" action="usuario?action=insertar">
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Nombre:</label>
-                                            <input type="text" class="form-control" name="nombre" type="text" max="2">
+                                            <input type="text" class="form-control" name="nombre" type="text">
                                         </div>
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Apellido:</label>
-                                            <input type="text" class="form-control" name="apellido" type="text" max="2">
+                                            <input type="text" class="form-control" name="apellido" type="text">
                                         </div>
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Usuario:</label>
-                                            <input type="text" class="form-control" name="usuario" type="text" max="2">
+                                            <input type="text" class="form-control" name="usuario" type="text">
                                         </div>
-                                        div class="form-group">
+                                        <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Password:</label>
-                                            <input type="text" class="form-control" name="pass" type="password" max="2">
+                                            <input class="form-control" name="pass" type="password">
                                         </div>
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Email:</label>
-                                            <input type="text" class="form-control" name="email" type="text" max="2">
+                                            <input type="text" class="form-control" name="email" type="text">
                                         </div>
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Telefono:</label>
-                                            <input type="text" class="form-control" name="telefono" type="text" max="2">
+                                            <input type="text" class="form-control" name="telefono" type="text">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>
@@ -214,31 +214,31 @@
                                     <form  method="POST" action="usuario?action=actualizar">
                                          <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Id usuario:</label>
-                                            <input type="text" class="form-control" name="idusuario" id="idusuario" type="text" max="2">
+                                            <input type="text" class="form-control" name="idusuario" id="idusuario" type="text" readonly="readonly">
                                         </div>
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Nombre:</label>
-                                            <input type="text" class="form-control" name="nombre" id="nombre" type="text" max="2">
+                                            <input type="text" class="form-control" name="nombre" id="nombre" type="text">
                                         </div>
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Apellido:</label>
-                                            <input type="text" class="form-control" name="apellido" id="apellido" type="text" max="2">
+                                            <input type="text" class="form-control" name="apellido" id="apellido" type="text">
                                         </div>
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Usuario:</label>
-                                            <input type="text" class="form-control" name="usuario" id="usuario" type="text" max="2">
+                                            <input type="text" class="form-control" name="usuario" id="usuario" type="text">
                                         </div>
-                                        div class="form-group">
+                                        <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Password:</label>
-                                            <input type="text" class="form-control" name="pass" id="pass" type="password" max="2">
+                                            <input class="form-control" name="pass" id="pass" type="password">
                                         </div>
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Email:</label>
-                                            <input type="text" class="form-control" name="email" id="email" type="text" max="2">
+                                            <input type="text" class="form-control" name="email" id="email" type="text">
                                         </div>
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Telefono:</label>
-                                            <input type="text" class="form-control" name="telefono" id="telefono" type="text" max="2">
+                                            <input type="text" class="form-control" name="telefono" id="telefono" type="text">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>

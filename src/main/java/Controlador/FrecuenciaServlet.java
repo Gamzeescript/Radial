@@ -1,6 +1,7 @@
 package Controlador;
 
 import Conexion.Conexion;
+import DAO.CargoDAO;
 import DAO.FrecuenciaDAO;
 import DAO.TransmisionDAO;
 import Modelo.FrecuenciaBean;
@@ -27,6 +28,7 @@ public class FrecuenciaServlet extends HttpServlet {
     TransmisionDAO transd = new TransmisionDAO(conn);
     List<FrecuenciaBean> lista = new LinkedList<>();
 
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, SQLException {
         String action = request.getParameter("action");
@@ -52,7 +54,9 @@ public class FrecuenciaServlet extends HttpServlet {
     protected void insertar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, SQLException {
 
-        TransmisionBean transb = new TransmisionBean();
+        TransmisionBean transb = new TransmisionBean(0);
+        request.setAttribute("listatransmision", transd.mostrar());
+
 
         String nombrefrecuencia = request.getParameter("nombrefrecuencia");
         String descripcion = request.getParameter("descripcion");
@@ -70,7 +74,6 @@ public class FrecuenciaServlet extends HttpServlet {
         lista = frecd.mostrar();
 
         request.setAttribute("lista", lista);
-        request.setAttribute("listatransmision", transd.mostrar());
         rd = request.getRequestDispatcher("/detallefrecuencia.jsp");
         rd.forward(request, response);
 
@@ -149,9 +152,7 @@ public class FrecuenciaServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(FrecuenciaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ParseException | SQLException ex) {
             Logger.getLogger(FrecuenciaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
