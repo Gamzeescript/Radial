@@ -148,7 +148,7 @@
                                     <form  method="POST" action="genero?action=insertar">
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Nombre Genero:</label>
-                                            <input type="text" class="form-control" name="nombregenero" type="text" max="2">
+                                            <input type="text" class="form-control" name="nombregenero" type="text">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>
