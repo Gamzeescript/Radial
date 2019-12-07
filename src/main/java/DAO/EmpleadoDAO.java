@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Conexion.Conexion;
@@ -14,10 +9,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- *
- * @author liliana.gironusam
- */
+
 public class EmpleadoDAO {
 
     Conexion conn;
@@ -81,7 +73,7 @@ public class EmpleadoDAO {
 
     public boolean Actualizar(EmpleadoBean empb) {
 
-        String sql = "update cargo set nombre=?, cedula=?, idproductora where idempleado=?";
+        String sql = "update empleado set nombre=?, cedula=?, idproductora=? where idempleado=?";
 
         prodb = new ProductoraBean();
 
@@ -101,13 +93,13 @@ public class EmpleadoDAO {
 
     }
 
-    public boolean eliminar(int idcargo) {
+    public boolean eliminar(int idempleado) {
 
-        String sql = "delete from cargo where idcargo=?";
+        String sql = "delete from empleado where idempleado=?";
 
         try {
             ps = conn.conectar().prepareStatement(sql);
-            ps.setInt(1, idcargo);
+            ps.setInt(1, idempleado);
             ps.executeUpdate();
 
             return true;

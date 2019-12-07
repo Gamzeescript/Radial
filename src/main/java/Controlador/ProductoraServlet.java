@@ -58,7 +58,7 @@ public class ProductoraServlet extends HttpServlet {
         String nombreproductora = request.getParameter("nombreproductora");
         String rfc = request.getParameter("rfc");
         String telefono = request.getParameter("telefono");
-        int idconsorcio = Integer.parseInt(request.getParameter("idconscorcio"));
+        int idconsorcio = Integer.parseInt(request.getParameter("idconsorcio"));
 
         ProductoraBean prodb = new ProductoraBean(0);
         prodb.setNombreproductora(nombreproductora);
@@ -99,7 +99,8 @@ public class ProductoraServlet extends HttpServlet {
         String nombreproductora = request.getParameter("nombreproductora");
         String rfc = request.getParameter("rfc");
         String telefono = request.getParameter("telefono");
-        int idconsorcio = Integer.parseInt(request.getParameter("idconscorcio"));
+        int idconsorcio = Integer.parseInt(request.getParameter("idconsorcio"));
+        
 
         ProductoraBean prodb = new ProductoraBean(idproductora);
         prodb.setNombreproductora(nombreproductora);

@@ -38,6 +38,7 @@ public class ProductoraDAO {
 
             return true;
         } catch (Exception e) {
+            System.out.println(e);
             return false;
         }
 
@@ -75,18 +76,18 @@ public class ProductoraDAO {
 
     public boolean Actualizar(ProductoraBean prodb) {
 
-        String sql = "update cargo set nombreproductora=?, rfc=?, nombreproductora=?, rfc=?, idconsorcio=? where idcargo=?";
+        String sql = "update productora set nombreproductora=?, rfc=?, telefono=?, idconsorcio=? where idproductora=?";
 
         conb = new ConsorcioBean();
 
         try {
             ps = conn.conectar().prepareStatement(sql);
-            ps.setInt(1, prodb.getIdproductora());
-            ps.setString(2, prodb.getNombreproductora());
-            ps.setString(3, prodb.getRfc());
-            ps.setString(4, prodb.getTelefono());
+            ps.setString(1, prodb.getNombreproductora());
+            ps.setString(2, prodb.getRfc());
+            ps.setString(3, prodb.getTelefono());
             conb = prodb.getIdconsorcio();
-            ps.setInt(5, conb.getIdconsorcio());
+            ps.setInt(4, conb.getIdconsorcio());
+            ps.setInt(5, prodb.getIdproductora());
             ps.executeUpdate();
 
             return true;

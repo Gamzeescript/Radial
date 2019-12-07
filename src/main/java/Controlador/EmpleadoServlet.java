@@ -96,6 +96,8 @@ public class EmpleadoServlet extends HttpServlet {
         String nombre = request.getParameter("nombre");
         String cedula = request.getParameter("cedula");
         int idproductora = Integer.parseInt(request.getParameter("idproductora"));
+        
+        System.out.println(idempleado + nombre + cedula + idproductora);
 
         EmpleadoBean empb = new EmpleadoBean(idempleado);
         empb.setNombre(nombre);
@@ -103,7 +105,7 @@ public class EmpleadoServlet extends HttpServlet {
         prodb.setIdproductora(idproductora);
         empb.setIdproductora(prodb);
 
-        res = empd.insertar(empb);
+        res = empd.Actualizar(empb);
         lista = empd.mostrar();
 
         request.setAttribute("lista", lista);
