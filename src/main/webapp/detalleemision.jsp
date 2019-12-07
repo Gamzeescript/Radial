@@ -11,6 +11,7 @@
         <link href="css/menucss.css" rel="stylesheet" type="text/css"/>
         <link href="font/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link href="css/mitoggle.css" rel="stylesheet" type="text/css"/>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -128,8 +129,8 @@
                                     <td>${e.idprograma.nombreprograma}</td>
                                     <td>${e.fechainicio}</td>
                                     <td>${e.horainicio}</td>
-                                    <td>${r.fechafin}</td>
-                                    <td>${e.horainicio}</td>
+                                    <td>${e.fechafin}</td>
+                                    <td>${e.horafin}</td>
                                     <td>${e.duracion}</td>
                                     <td>${e.repeticion}</td>
                                     <td>
@@ -159,10 +160,10 @@
                             <div class="modal-body">
                                 <form  method="POST" action="emision?action=insertar">
                                     <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Consorcio:</label>
+                                        <label for="recipient-name" class="col-form-label">Prograna:</label>
                                         <select name="idprograma" id="idprograma">
                                             <option value="">-- Seleccione una opcion--</option>
-                                            <c:forEach items="${listaprograma}" var="p">
+                                            <c:forEach items="${listaprograma}" var="c">
                                                 <option value="${c.idprograma}">${c.nombreprograma}</option>
                                             </c:forEach>
                                         </select>
@@ -188,9 +189,13 @@
                                         <input type="text" class="form-control" name="duracion" type="text">
                                     </div>
                                     <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Repeticion:</label>
                                     <label class="switch">
-                                        <input type="checkbox" name="repeticion">
-                                        <span class="slider round"></span>
+                                        <input type="checkbox" data-on="Yup" data-off="Nope" value="Nope">
+                                        <span class="slider round">
+                                            <span class="on">Si</span>
+                                            <span class="off">No</span>
+                                        </span>
                                     </label>
                                     </div>
                                     <div class="modal-footer">
@@ -225,39 +230,46 @@
                             </div>
                             <div class="modal-body">
                                 <form  method="POST" action="emision?action=actualizar">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Id Emision:</label>
+                                        <input type="text" class="form-control" name="idemision" id="idemision" readonly="readonly">
+                                    </div>
                                         <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Consorcio:</label>
+                                        <label for="recipient-name" class="col-form-label">Programa:</label>
                                         <select name="idprograma" id="idprograma">
-                                            <option value="">-- Seleccione una opcion--</option>
-                                            <c:forEach items="${listaprograma}" var="p">
+                                            <c:forEach items="${listaprograma}" var="c">
                                                 <option value="${c.idprograma}">${c.nombreprograma}</option>
                                             </c:forEach>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="message-text" class="col-form-label">fecha inicio:</label>
-                                        <input type="date" class="form-control" name="fechainicio">
+                                        <input type="date" class="form-control" name="fechainicio" id="fechainicio">
                                     </div>
                                     <div class="form-group">
                                         <label for="recipient-name" class="col-form-label">horario inicio:</label>
-                                        <input type="time" class="form-control" name="horainicio">
+                                        <input type="time" class="form-control" name="horainicio" id="horainicio">
                                     </div>
                                     <div class="form-group">
                                         <label for="message-text" class="col-form-label">fecha fin:</label>
-                                        <input type="date" class="form-control" name="fechafin">
+                                        <input type="date" class="form-control" name="fechafin" id="fechafin">
                                     </div>
                                     <div class="form-group">
                                         <label for="recipient-name" class="col-form-label">horario fin:</label>
-                                        <input type="time" class="form-control" name="horafin">
+                                        <input type="time" class="form-control" name="horafin" id="horafin">
                                     </div>
                                     <div class="form-group">
                                         <label for="recipient-name" class="col-form-label">duracion:</label>
-                                        <input type="text" class="form-control" name="duracion" type="text">
+                                        <input type="text" class="form-control" name="duracion" type="text" id="duracion">
                                     </div>
                                     <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Repeticion:</label>
                                     <label class="switch">
-                                        <input type="checkbox" name="repeticion">
-                                        <span class="slider round"></span>
+                                        <input type="checkbox" name="repeticion" id="repeticion"  data-on="1" data-off="0">
+                                        <span class="slider round">
+                                        <span class="on">Si</span>
+                                        <span class="off">No</span>
+                                        </span>
                                     </label>
                                     </div>
                                     <div class="modal-footer">
@@ -274,42 +286,48 @@
                     <!-- Inicio de mis scripts -->
 
                     <script>
-                                /* Apertura de modal con Jquery */
+                        /* Apertura de modal con Jquery */
 
-                                $('#.bd-example-modal-lg').modal(options);                </script>
+                        $('#.bd-example-modal-lg').modal(options);
+                    </script>
 
                     <script type="text/javascript">
-
-                                $(document).ready(function () {
-                        $('select').formSelect();
+                    
+                        $(document).ready(function () {
+                                        $('select').formSelect();
                         });
-                                function editar(idradio, nombreradio, descripcion, idfrecuencia, idconsorcio) {
+                        function editar(idemision, idprograma, fechainicio, horainicio, fechafin, horafin, duracion, repeticion) {
 
-                                /* Tomando los valores desde el javascript */
-                                document.getElementById("idradio").value = idradio;
-                                        document.getElementById("nombreradio").value = nombreradio;
-                                        document.getElementById("descripcion").value = descripcion;
-                                        document.getElementById("idfrecuencia").value = idfrecuencia;
-                                        document.getElementById("idconsorcio").value = idconsorcio;
-                                }
-                    </script>
-                    <script>
-                        function alerta_eliminar(idemision) {
-                        Swal.fire({
-                        title: 'ATENCION: esta a punto de borrar un registro',
-                                text: 'Esta accion no puede deshacerse',
-                                icon: 'warning',
-                                cancelButtonText: "Cancelar",
-                                showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                                confirmButtonText: 'Si, Eliminar'
-                        }).then((result) = > {
-                        if (result.value) {
+                             /* Tomando los valores desde el javascript */
+                                document.getElementById("idemision").value = idemision;
+                                document.getElementById("idprograma").value = idprograma;
+                                document.getElementById("fechainicio").value = fechainicio;
+                                document.getElementById("horainicio").value = horainicio;
+                                document.getElementById("fechafin").value = fechafin;
+                                document.getElementById("horafin").value = horafin;
+                                document.getElementById("duracion").value = duracion;
+                                document.getElementById("repeticion").value = repeticion;
+                                    }
+                                    </script>
+                               <script>
+                          function alerta_eliminar(idemision) {
+                    Swal.fire({
+                    title: 'Advertencia: Esta a punto de borrar un registro',
+                    text: 'Sabemos de antemano que esta es una mala practica ¿Has pensado en solo ocultarlo? bueno... Procede si estas conciente de las consecuencias',
+                    icon: 'warning',
+                    cancelButtonText: "Cancelar",
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, Eliminar'
+                }).then((result) => {
+                    if (result.value) {
                         window.location.href = "emision?action=eliminar&idemision=" + idemision;
-                        }
-                        })
-                        }
+                    }
+                })
+            }
+
+
                     </script>
 
                     <!-- fin de mis scripts -->

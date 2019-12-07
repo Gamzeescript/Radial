@@ -1,9 +1,7 @@
 package Controlador;
 
 import Conexion.Conexion;
-import DAO.CargoDAO;
 import DAO.CargoxEmpleadoDAO;
-import DAO.EmpleadoDAO;
 import Modelo.CargoxEmpleadoBean;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,8 +22,6 @@ public class CargoxempleadoServlet extends HttpServlet {
     Conexion conn = new Conexion();
     RequestDispatcher rd;
     boolean res;
-    EmpleadoDAO empd = new EmpleadoDAO(conn);
-    CargoDAO card = new CargoDAO(conn);
     CargoxEmpleadoDAO cxed = new CargoxEmpleadoDAO(conn);
     List<CargoxEmpleadoBean> lista = new LinkedList<>();
 
@@ -50,9 +46,7 @@ public class CargoxempleadoServlet extends HttpServlet {
         lista = cxed.mostrar();
 
         request.setAttribute("lista", lista);
-        request.setAttribute("listaempleado", empd.mostrar());
-        request.setAttribute("listacargo", card.mostrar());
-        rd = request.getRequestDispatcher("/detallecxed.jsp");
+        rd = request.getRequestDispatcher("/detallecargoxempleado.jsp");
         rd.forward(request, response);
 
     }

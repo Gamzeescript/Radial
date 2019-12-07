@@ -1,4 +1,3 @@
-
 package DAO;
 
 import Conexion.Conexion;
@@ -24,7 +23,7 @@ public class ProduccionDAO {
 
     public boolean insertar(ProduccionBean prb) {
 
-        String sql = "insert into cargo values(?,?,?)";
+        String sql = "insert into produccion values(?,?,?)";
 
         prod = new ProductoraBean();
 
@@ -73,7 +72,7 @@ public class ProduccionDAO {
 
     public boolean Actualizar(ProduccionBean prb) {
 
-        String sql = "update cargo set nombreproduccion=?, idproductora=? where idproduccion=?";
+        String sql = "update produccion set nombreproduccion=?, idproductora=? where idproduccion=?";
 
         prod = new ProductoraBean();
 
@@ -94,7 +93,7 @@ public class ProduccionDAO {
 
     public boolean eliminar(int idproduccion) {
 
-        String sql = "delete from cargo where idproduccion=?";
+        String sql = "delete from produccion where idproduccion=?";
 
         try {
             ps = conn.conectar().prepareStatement(sql);

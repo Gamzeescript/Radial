@@ -29,6 +29,7 @@ public class EncuestaServlet extends HttpServlet {
     Conexion conn = new Conexion();
     RequestDispatcher rd;
     boolean res;
+    String msg = "";
     List<EncuestaBean> lista = new LinkedList<>();
     EncuestaDAO encd = new EncuestaDAO(conn);
     UsuarioDAO userd = new UsuarioDAO(conn);
@@ -41,6 +42,9 @@ public class EncuestaServlet extends HttpServlet {
         switch (action) {
             case "insertar":
                 insertar(request, response);
+                break;
+            case "encuesta":
+                encuesta(request, response);
                 break;
             case "mostrar":
                 mostrar(request, response);
@@ -57,6 +61,17 @@ public class EncuestaServlet extends HttpServlet {
 
     }
 
+    protected void encuesta(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ParseException, SQLException {
+
+        request.setAttribute("listausuario", userd.mostrar());
+        request.setAttribute("listaprograma", prod.mostrar());
+        request.setAttribute("listarating", ratd.mostrar());
+        rd = request.getRequestDispatcher("/surveyrating.jsp");
+        rd.forward(request, response);
+        
+    }
+    
     protected void insertar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, SQLException {
 
@@ -78,16 +93,21 @@ public class EncuestaServlet extends HttpServlet {
 
         res = encd.insertar(encb);
         lista = encd.mostrar();
+        
+        if(res){
+            msg = "¡Gracias por tu participacion!";
+        }
 
-        request.setAttribute("lista", lista);
-        request.setAttribute("listaclausuario", userd.mostrar());
+        request.setAttribute("msg", msg);
+        request.setAttribute("listausuario", userd.mostrar());
         request.setAttribute("listaprograma", prod.mostrar());
         request.setAttribute("listarating", ratd.mostrar());
-        rd = request.getRequestDispatcher("/detalleencuesta.jsp");
+        rd = request.getRequestDispatcher("/surveyrating.jsp");
         rd.forward(request, response);
 
     }
 
+    
     protected void mostrar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
 

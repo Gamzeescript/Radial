@@ -106,12 +106,12 @@
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-8">
-                    <h1>Listado de Cargos</h1>
+                    <h1>Escala de Rating</h1>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <td>id Cargo</td>
-                                <td>Cargo</td>
+                                <td>id Rating</td>
+                                <td>Rating</td>
                                 <td>Descripcion</td>
                                 <td>Acciones</td>
                             </tr>
@@ -232,8 +232,8 @@
                     <script>
                           function alerta_eliminar(idrating) {
                     Swal.fire({
-                    title: 'De verdad, de verdad ¿quieres eliminar esta vaina?',
-                    text: 'Sabemos de antemano que esta es una mala practica ¿Has pensado en solo ocultarlo? bueno... Procede si estas conciente de las consecuencias',
+                    title: 'ATENCION: esta a punto de borrar un registro',
+                    text: 'Esta accion no puede deshacerse',
                     icon: 'warning',
                     cancelButtonText: "Cancelar",
                     showCancelButton: true,
@@ -246,14 +246,11 @@
                     }
                 })
             }
-
-
                     </script>
                     
                     
                      <!-- fin de mis scripts -->
-                    
-                    
+         
                 </div>
             </div>
         </div>

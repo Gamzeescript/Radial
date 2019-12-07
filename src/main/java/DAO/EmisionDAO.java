@@ -77,8 +77,8 @@ public class EmisionDAO {
                 emb.setIdprograma(prob);
                 emb.setFechainicio(rs.getDate(3));
                 emb.setHorainicio(rs.getTime(4));
-                emb.setFechainicio(rs.getDate(5));
-                emb.setHorainicio(rs.getTime(6));
+                emb.setFechafin(rs.getDate(5));
+                emb.setHorafin(rs.getTime(6));
                 emb.setDuracion(rs.getString(7));
                 emb.setRepeticion(rs.getBoolean(8));
                 lista.add(emb);
@@ -123,7 +123,7 @@ public class EmisionDAO {
 
     public boolean eliminar(int idemision) {
 
-        String sql = "delete from cargo where idemision=?";
+        String sql = "delete from emision where idemision=?";
 
         try {
             ps = conn.conectar().prepareStatement(sql);
