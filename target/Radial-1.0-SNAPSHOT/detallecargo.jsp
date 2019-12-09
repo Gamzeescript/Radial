@@ -50,54 +50,8 @@
 
     <!-- BODY -->
     <body>
-
-        <!--========== HEADER ==========-->
-        <header class="header navbar-fixed-top">
-            <!-- Navbar -->
-            <nav class="navbar" role="navigation">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="menu-container">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="toggle-icon"></span>
-                        </button>
-
-                        <!-- Logo -->
-                        <div class="logo">
-                            <a class="logo-wrap" href="Index.jsp">
-                                <img class="logo-img logo-img-main" src="img/radio-on-button.png" alt="logo">
-                                <img class="logo-img logo-img-active" src="img/radio-on-button.png" alt="Asentus Logo">
-                            </a>
-                        </div>
-                        <!-- End Logo -->
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse nav-collapse">
-                        <div class="menu-container">
-                            <ul class="navbar-nav navbar-nav-right">
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="Index.jsp">Inicio</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargo?action=mostrar">Cargos</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="empleado?action=mostrar">Empleados</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargoxempleado?action=mostrar">Staff</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="consorcio?action=mostrar">Consorcios</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="productora?action=mostrar">Productoras</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="producciom?action=mostrar">Producciones</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="encuesta?action=mostrar">Power BI - Estadisticas</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="usuario?action=mostrar">Usuario</a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <br>
-                    <!-- End Navbar Collapse -->
-                </div>
-            </nav>
-            <!-- Navbar -->
-        </header>
-        <!--========== END HEADER ==========-->
-        <br><br><br><br><br><br><br><br><br>
+         <!--include de mi header  -->
+        <jsp:include page="/menu.jsp"/>
           
             <!--========== tabla ==========-->
             
@@ -115,15 +69,14 @@
                                 <td>Acciones</td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="textoblanco">
                             <c:forEach items="${lista}" var="c">
-                                <tr>
-                                    <td id="textoblanco">${c.idcargo}</td>
-                                    <td id="textoblanco">${c.nombrecargo}</td>
-                                    <td id="textoblanco">${c.descripcion}</td>
+                                <tr>>
+                                    <td>${c.idcargo}</td>
+                                    <td>${c.nombrecargo}</td>
+                                    <td>${c.descripcion}</td>
                                     <td>
-                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${c.idcargo}', '${c.nombrecargo}', '${c.descripcion}')">Actualizar</button>
-                                        <br><br>
+                                        <button type="button" class="btn" value="primary" style="background-color: #708090" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${c.idcargo}', '${c.nombrecargo}', '${c.descripcion}')">Actualizar</button>
                                         <button type="button" class="btn btn-danger"  onclick="alerta_eliminar(${c.idcargo})"><a>Eliminar</a></button>
                                     </td>
                                 </tr>
@@ -132,7 +85,7 @@
                     </table>    
                     <br><br>
                     <!-- Trigger -->
-                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Listar Cargos</button>
+                    <button type="button" class="btn" value="primary" style="background-color: #FFFFFF" data-toggle="modal" data-target="#exampleModal">Listar Cargos</button>
 
                     </div>
                                     </div>
@@ -216,19 +169,15 @@
 
                     <script>
                         /* Apertura de modal con Jquery */
-
                         $('#.bd-example-modal-lg').modal(options);
-
                     </script>
 
                     <script type="text/javascript">
                         function editar(idcargo, nombrecargo, descripcion) {
-
                             /* Tomando los valores desde el javascript */
                             document.getElementById("idcargo").value = idcargo;
                             document.getElementById("nombrecargo").value = nombrecargo;
                             document.getElementById("descripcion").value = descripcion;
-
                         }
                     </script>
                     <script>
@@ -248,8 +197,6 @@
                     }
                 })
             }
-
-
                     </script>
 
             

@@ -1,12 +1,9 @@
-
 package Controlador;
 
 import Conexion.Conexion;
-import DAO.RatingDAO;
 import DAO.UsuarioDAO;
 import Modelo.UsuarioBean;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,10 +14,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class UsuarioServlet extends HttpServlet {
     
     boolean res;
+    String msg = "";
     RequestDispatcher rd;
     Conexion conn = new Conexion();
     UsuarioDAO userd = new UsuarioDAO(conn);
@@ -30,6 +29,12 @@ public class UsuarioServlet extends HttpServlet {
             throws ServletException, IOException, SQLException {
         String action = request.getParameter("action");
         switch (action) {
+            case "login":
+                login(request,response);
+                break;
+            case "crearusuario":
+                crearusuario(request, response);
+                break;
             case "insertar":
                 insertar(request, response);
                 break;
@@ -45,6 +50,55 @@ public class UsuarioServlet extends HttpServlet {
             default:
                 throw new AssertionError();
         }
+
+    }
+    
+     protected void login(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String usuario = request.getParameter("usuario");
+        String pass = request.getParameter("pass");
+        
+        res = userd.login(usuario, pass);
+         System.out.println(res);
+        if(res){            
+            HttpSession session= request.getSession();
+            session.setAttribute("usuario", usuario);
+            response.sendRedirect("Index.jsp");
+        }else{
+            msg = "Usuario o clave incorrecta.";
+            request.setAttribute("msg", msg);
+            rd = request.getRequestDispatcher("/login.jsp");
+            rd.forward(request, response);
+        }
+     }
+     
+      protected void crearusuario(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
+
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String usuario = request.getParameter("usuario");
+        String pass = request.getParameter("pass");
+        String email = request.getParameter("email");
+        String telefono = request.getParameter("telefono");
+
+        UsuarioBean userb = new UsuarioBean(0);
+        userb.setNombre(nombre);
+        userb.setApellido(apellido);
+        userb.setUsuario(usuario);
+        userb.setPass(pass);
+        userb.setEmail(email);
+        userb.setTelefono(telefono);
+
+        res = userd.insertar(userb);
+        
+        if(res){
+            msg = "¡Usuario creado con exito!";
+        }
+
+        request.setAttribute("msg", msg);
+        rd = request.getRequestDispatcher("/newuser.jsp");
+        rd.forward(request, response);
 
     }
 
@@ -83,7 +137,6 @@ public class UsuarioServlet extends HttpServlet {
         request.setAttribute("lista", lista);
         rd = request.getRequestDispatcher("/detalleusuario.jsp");
         rd.forward(request, response);
-        
 
     }
 

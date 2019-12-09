@@ -1,7 +1,7 @@
 <%-- 
     Document   : menuprincipal
     Created on : 12-06-2019, 10:51:09 AM
-    Author     : liliana.gironusam
+    Author     : Gamzeescript
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -64,7 +64,7 @@
 
                         <!-- Logo -->
                         <div class="logo">
-                            <a class="logo-wrap" href="Index.jsp">
+                            <a class="logo-wrap" href="menuprincipal.jsp">
                                 <img class="logo-img logo-img-main" src="img/radio-on-button.png" alt="logo">
                                 <img class="logo-img logo-img-active" src="img/radio-on-button.png" alt="Asentus Logo">
                             </a>
@@ -82,7 +82,7 @@
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargoxempleado?action=mostrar">Staff</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="consorcio?action=mostrar">Consorcios</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="productora?action=mostrar">Productoras</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="producciom?action=mostrar">Producciones</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="produccion?action=mostrar">Producciones</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="encuesta?action=mostrar">Power BI - Estadisticas</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="usuario?action=mostrar">Usuario</a></li>
 

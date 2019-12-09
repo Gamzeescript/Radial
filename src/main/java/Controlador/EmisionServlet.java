@@ -69,10 +69,10 @@ public class EmisionServlet extends HttpServlet {
         ProgramaBean prob = new ProgramaBean();
 
         int idprograma = Integer.parseInt(request.getParameter("idprograma"));
-        Date fechainicio = ffechai.parse("fechainicio");
-        Date horainicio = fhorai.parse("horainicio");
-        Date fechafin = ffechaf.parse("fechafin");
-        Date horafin = fhoraf.parse("horafin");
+        Date fechainicio = ffechai.parse(request.getParameter("fechainicio"));
+        Date horainicio = fhorai.parse(request.getParameter("horainicio"));
+        Date fechafin = ffechaf.parse(request.getParameter("fechafin"));
+        Date horafin = fhoraf.parse(request.getParameter("horafin"));
         boolean repeticion = Boolean.parseBoolean(request.getParameter("repeticion"));
 
         EmisionBean emb = new EmisionBean(0);
@@ -118,10 +118,10 @@ public class EmisionServlet extends HttpServlet {
        
         int idemision = Integer.parseInt(request.getParameter("idemision"));
         int idprograma = Integer.parseInt(request.getParameter("idprograma"));
-        Date fechainicio = ffechai.parse("fechainicio");
-        Date horainicio = fhorai.parse("horainicio");
-        Date fechafin = ffechaf.parse("fechafin");
-        Date horafin = fhoraf.parse("horafin");
+        Date fechainicio = ffechai.parse(request.getParameter("fechainicio"));
+        Date horainicio = fhorai.parse(request.getParameter("horainicio"));
+        Date fechafin = ffechaf.parse(request.getParameter("fechafin"));
+        Date horafin = fhoraf.parse(request.getParameter("horafin"));
         boolean repeticion = Boolean.parseBoolean(request.getParameter("repeticion"));
 
         EmisionBean emb = new EmisionBean(idemision);
@@ -164,9 +164,7 @@ public class EmisionServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(EmisionServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ParseException | SQLException ex) {
             Logger.getLogger(EmisionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -176,9 +174,7 @@ public class EmisionServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(EmisionServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ParseException | SQLException ex) {
             Logger.getLogger(EmisionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

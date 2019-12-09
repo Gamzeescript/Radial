@@ -1,114 +1,61 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<!-- ==============================
+    Project:        Metronic "Asentus" Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
+    Version:        1.0
+    Author:         KeenThemes
+    Primary use:    Corporate, Business Themes.
+    Email:          support@keenthemes.com
+    Follow:         http://www.twitter.com/keenthemes
+    Like:           http://www.facebook.com/keenthemes
+    Website:        http://www.keenthemes.com
+    Premium:        Premium Metronic Admin Theme: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+================================== -->
+<html lang="en" class="no-js">
+    <!-- BEGIN HEAD -->
     <head>
-         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.js" type="text/javascript"></script>
-        <script src="js/bootstrap.bundle.js" type="text/javascript"></script>
-        <link href="css/menucss.css" rel="stylesheet" type="text/css"/>
-        <link href="font/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <meta charset="utf-8"/>
         <title>Radio Hazbin</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+
+        <!-- GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+        <link href="vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/Themebodies.css" rel="stylesheet" type="text/css"/>
+         <link href="resources/iconos/iconos/iconos.css" rel="stylesheet" type="text/css"/>
+        
+        <!-- PAGE LEVEL PLUGIN STYLES -->
+        <link href="css/animate.css" rel="stylesheet">
+        <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- THEME STYLES -->
+        <link href="css/layout.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico"/>
     </head>
+    <!-- END HEAD -->
+
+    <!-- BODY -->
     <body>
-        <!-- seccion de menu -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-8" style="margin-left:-200px">
-                    <div class="nav-side-menu">
-                        <div class="brand">The Cinema - Admin Panel</div>
-                        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-
-                        <div class="menu-list">
-
-                            <ul id="menu-content" class="menu-content collapse out">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-dashboard fa-lg"></i> Volver al Portal de Cine
-                                    </a>
-                                </li>
-
-                                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                                    <a href="#"><i class="fa fa-gift fa-lg"></i> Administraci&oacute;n de Cines <span class="arrow"></span></a>
-                                </li>
-                                <ul class="sub-menu collapse" id="products">
-                                    <li class="active"><a href="#">Cines existentes</a></li>
-                                    <li><a href="butaca?action=mostrar">Salas de cine</a></li>
-                                    <li><a href="butaca?action=mostrar">Butacas</a></li>
-                                    <li><a href="butaca?action=mostrar">Formatos existentes</a></li>
-                                    <li><a href="butaca?action=mostrar">Funciones</a></li>
-                                    <li><a href="butaca?action=mostrar">Promoci&oacute;n</a></li>
-                                </ul>
-
-                                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                                    <a href="#"><i class="fa fa-gift fa-lg"></i>Administraci&oacute;n de peliculas<span class="arrow"></span></a>
-                                </li>
-                                <ul class="sub-menu collapse" id="products">
-                                    <li class="active"><a href="#">Peliculas Disponibles</a></li>
-                                    <li><a href="titulo?action=mostrar">Titulos de peliculas</a></li>
-                                    <li><a href="genero?action=mostrar">Genero</a></li>
-                                    <li><a href="actor?action=mostrar">Actores</a></li>
-                                    <li><a href="director?action=mostrar">Directores</a></li>
-                                    <li><a href="reparto?action=mostrar">Reparto de pel&iacute;culas</a></li>
-                                    <li><a href="clasificacion?action=mostrar">Clasificaci&oacute;n</a></li>
-                                    <li><a href="calificacion?action=mostrar">Calificaci&oacute;n</a></li>
-
-                                </ul>
-
-                                <li data-toggle="collapse" data-target="#service" class="collapsed">
-                                    <a href="#"><i class="fa fa-globe fa-lg"></i>Otros ajustes<span class="arrow"></span></a>
-                                </li>  
-                                <ul class="sub-menu collapse" id="service">
-                                    <li>Idiomas</li>
-                                    <li>Paises</li>
-                                </ul>
-
-
-                                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                                    <a href="#"><i class="fa fa-car fa-lg"></i><span class="arrow">Ticketeria</span></a>
-                                </li>
-                                <ul class="sub-menu collapse" id="new">
-                                    <li>Ver tickets</li>
-                                    <li>Reserva de Tickets</li>
-                                    <li>Compra de Tickets</li>
-                                </ul>
-
-
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user fa-lg"></i> Usuarios
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users fa-lg"></i> Secci&oacute;n de opiniones
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- fin de menu -->
+         <!--include de mi header  -->
+        <jsp:include page="/menu.jsp"/>
+          
+            <!--========== tabla ==========-->
             
-            <!-- Inicio de tabla -->
-            
-            
+            <div class="container">
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-8">
-                    <h1>Listado de Frecuencias</h1>
-                    <table class="table table-bordered">
-                        <thead>
+                    <h1 class="texto">Listado de Frecuencias</h1>
+                    <table class="table table-light">
+                        <thead id="textoblanco">
                             <tr>
                                 <td>id Frecuencia</td>
                                 <td>Nombre frecuencia</td>
@@ -118,7 +65,7 @@
                                 <td>Acciones</td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="textoblanco">
                             <c:forEach items="${lista}" var="f">
                                 <tr>
                                     <td>${f.idfrecuencia}</td>
@@ -127,8 +74,8 @@
                                     <td>${f.frecuencia}</td>
                                      <td>${f.idtransmision.nombretransmision}</td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${f.idfrecuencia}', '${f.nombrefrecuencia}', '${f.descripcion}', '${f.frecuencia}', '${f.idtransmision}')">Actualizar</button>
-                                        <button type="button" class="btn btn-outline-danger"  onclick="alerta_eliminar(${f.idfrecuencia})"><a>Eliminar</a></button>
+                                        <button type="button" class="btn" value="primary" style="background-color: #708090" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${f.idfrecuencia}', '${f.nombrefrecuencia}', '${f.descripcion}', '${f.frecuencia}', '${f.idtransmision}')">Actualizar</button>
+                                        <button type="button" class="btn btn-danger"  onclick="alerta_eliminar(${f.idfrecuencia})"><a>Eliminar</a></button>
                                     </td>
                                 </tr>
                             </c:forEach>                                
@@ -138,7 +85,7 @@
                     <!-- Trigger -->
                     <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Agregar  Frecuencia</button>
 
-                    </div>
+                    </div></div></div>
                 
                     <!-- mi modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -292,9 +239,30 @@
                     
                      <!-- fin de mis scripts -->
                     
-                    
-                </div>
-            </div>
-        </div>
+                <!-- Back To Top -->
+        <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+
+        <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- CORE PLUGINS -->
+        <script src="vendor/jquery.min.js" type="text/javascript"></script>
+        <script src="vendor/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL PLUGINS -->
+        <script src="vendor/jquery.easing.js" type="text/javascript"></script>
+        <script src="vendor/jquery.back-to-top.js" type="text/javascript"></script>
+        <script src="vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
+        <script src="vendor/jquery.wow.min.js" type="text/javascript"></script>
+        <script src="vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+        <script src="vendor/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+        <script src="vendor/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL SCRIPTS -->
+        <script src="js/layout.min.js" type="text/javascript"></script>
+        <script src="js/components/wow.min.js" type="text/javascript"></script>
+        <script src="js/components/swiper.min.js" type="text/javascript"></script>
+        <script src="js/components/masonry.min.js" type="text/javascript"></script>
+
     </body>
+    <!-- END BODY -->
 </html>
