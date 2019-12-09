@@ -5,16 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page session="true" %>
-<%
-    HttpSession sesion = request.getSession();
-    String usuario;
-    if(sesion.getAttribute("usuario")!=null){
-        usuario = sesion.getAttribute("usuario").toString();
-    }else{
-        response.sendRedirect("login.jsp");
-    }
-%>
 <!DOCTYPE html>
 <!-- ==============================
     Project:        Metronic "Asentus" Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
@@ -86,15 +76,11 @@
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
                             <ul class="navbar-nav navbar-nav-right">
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="Index.jsp">Inicio</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargo?action=mostrar">Cargos</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="empleado?action=mostrar">Empleados</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargoxempleado?action=mostrar">Staff</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="consorcio?action=mostrar">Consorcios</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="productora?action=mostrar">Productoras</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="produccion?action=mostrar">Producciones</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="encuesta?action=mostrar">Power BI - Estadisticas</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="usuario?action=mostrar">Usuario</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="indexgeneral.jsp">Inicio</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargo?action=mostrar">Programas</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="empleado?action=mostrar">Radio en linea</a></li>
+                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargoxempleado?action=mostrar">Encuesta</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargoxempleado?action=mostrar">Iniciar Sesion</a></li>
                             </ul>
                         </div>
                     </div>
@@ -192,18 +178,6 @@
                                 <p>Contamos con la variedad m&aacute;s extensa de generos<br/> Abarcamos cultura, edad y gustos personalizados</p>
                             </div>
                             <a href="genero?action=mostrar" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Administrar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="img-responsive" src="img/radiohas6.png" alt="Slider Image">
-                    <div class="container">
-                        <div class="carousel-centered">
-                            <div class="margin-b-40">
-                                <h2 class="carousel-title">Rating</h2>
-                                <p>Nos caracterizamos por la calidad de nuestros productos<br/> buscando la sintonizacion en las radios</p>
-                            </div>
-                            <a href="rating?action=mostrar" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Administrar</a>
                         </div>
                     </div>
                 </div>

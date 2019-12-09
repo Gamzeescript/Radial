@@ -5,6 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true" %>
+<%
+    HttpSession sesion = request.getSession();
+    String usuario;
+    if(sesion.getAttribute("usuario")!=null){
+        usuario = sesion.getAttribute("usuario").toString();
+    }else{
+        response.sendRedirect("login.jsp");
+    }
+%>
 <!DOCTYPE html>
 <!-- ==============================
     Project:        Metronic "Asentus" Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
@@ -85,7 +95,6 @@
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="produccion?action=mostrar">Producciones</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="encuesta?action=mostrar">Power BI - Estadisticas</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="usuario?action=mostrar">Usuario</a></li>
-
                             </ul>
                         </div>
                     </div>
@@ -205,6 +214,7 @@
         <div class="row" id="micolordiv">
             <div class="col-12" >
                 <p id="textoblanco">Made with <i class="fa fa-heart" aria-hidden="true"></i> by Gamzeescript</p>  
+                <p id="textoblanco"><a href="Index.jsp">Cerrar Sesion</a></p>  
             </div>
         </div>
 

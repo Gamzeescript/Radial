@@ -56,3 +56,20 @@ body{
 #textonegro{
     font-color: #00000;
 }
+
+.bp {
+text-decoration:none;
+font-weight:600;
+font-size:20px;
+color:#ffffff;
+padding-top:15px;
+padding-bottom:15px;
+padding-left:150px;
+padding-right:150px;
+background-color:#FFD27D;
+}
+
+/* Este es el estilo al poner el cursor encima del boton*/
+.bp:hover {
+background-color:#000000;
+}
