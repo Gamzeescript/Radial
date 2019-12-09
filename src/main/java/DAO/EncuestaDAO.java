@@ -1,4 +1,3 @@
-
 package DAO;
 
 import Conexion.Conexion;
@@ -24,7 +23,6 @@ public class EncuestaDAO {
     public EncuestaDAO(Conexion conn) {
         this.conn = conn;
     }
-    
 
     public boolean insertar(EncuestaBean encb) {
 
@@ -53,6 +51,251 @@ public class EncuestaDAO {
     }
 
     public List<EncuestaBean> mostrar() throws SQLException {
+        List<EncuestaBean> lista = new LinkedList<>();
+
+        String sql = "select e.idencuesta, u.nombre, pro.nombreprograma, r.nombrerating from encuesta e\n"
+                + "inner join usuario u on e.idusuario = u.idusuario\n"
+                + "inner join programa pro on e.idprograma = pro.idprograma\n"
+                + "inner join rating r on  e.idrating = r.idrating";
+
+        try {
+            ps = conn.conectar().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                userb = new UsuarioBean();
+                prob = new ProgramaBean();
+                rtb = new RatingBean();
+
+                EncuestaBean encb = new EncuestaBean();
+                encb.setIdencuesta(rs.getInt(1));
+                userb.setNombre(rs.getString(2));
+                encb.setIdusuario(userb);
+                prob.setNombreprograma(rs.getString(3));
+                encb.setIdprograma(prob);
+                rtb.setNombrerating(rs.getString(4));
+                encb.setIdrating(rtb);
+                lista.add(encb);
+            }
+            return lista;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    public List<EncuestaBean> mostrarcincoestrellas() throws SQLException {
+        List<EncuestaBean> lista = new LinkedList<>();
+
+        String sql = "select e.idencuesta, u.nombre, pro.nombreprograma, r.nombrerating from encuesta e\n"
+                + "inner join usuario u on e.idusuario = u.idusuario\n"
+                + "inner join programa pro on e.idprograma = pro.idprograma\n"
+                + "inner join rating r on  e.idrating = r.idrating";
+
+        try {
+            ps = conn.conectar().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                userb = new UsuarioBean();
+                prob = new ProgramaBean();
+                rtb = new RatingBean();
+
+                EncuestaBean encb = new EncuestaBean();
+                encb.setIdencuesta(rs.getInt(1));
+                userb.setNombre(rs.getString(2));
+                encb.setIdusuario(userb);
+                prob.setNombreprograma(rs.getString(3));
+                encb.setIdprograma(prob);
+                rtb.setNombrerating(rs.getString(4));
+                encb.setIdrating(rtb);
+                lista.add(encb);
+            }
+            return lista;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    public List<EncuestaBean> mostrarcuatroestrellas() throws SQLException {
+        List<EncuestaBean> lista = new LinkedList<>();
+
+        String sql = "select e.idencuesta, u.nombre, pro.nombreprograma, r.nombrerating from encuesta e\n"
+                + "inner join usuario u on e.idusuario = u.idusuario\n"
+                + "inner join programa pro on e.idprograma = pro.idprograma\n"
+                + "inner join rating r on  e.idrating = r.idrating";
+
+        try {
+            ps = conn.conectar().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                userb = new UsuarioBean();
+                prob = new ProgramaBean();
+                rtb = new RatingBean();
+
+                EncuestaBean encb = new EncuestaBean();
+                encb.setIdencuesta(rs.getInt(1));
+                userb.setNombre(rs.getString(2));
+                encb.setIdusuario(userb);
+                prob.setNombreprograma(rs.getString(3));
+                encb.setIdprograma(prob);
+                rtb.setNombrerating(rs.getString(4));
+                encb.setIdrating(rtb);
+                lista.add(encb);
+            }
+            return lista;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    public List<EncuestaBean> mostrartresestrellas() throws SQLException {
+        List<EncuestaBean> lista = new LinkedList<>();
+
+        String sql = "select e.idencuesta, u.nombre, pro.nombreprograma, r.nombrerating from encuesta e\n"
+                + "inner join usuario u on e.idusuario = u.idusuario\n"
+                + "inner join programa pro on e.idprograma = pro.idprograma\n"
+                + "inner join rating r on  e.idrating = r.idrating";
+
+        try {
+            ps = conn.conectar().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                userb = new UsuarioBean();
+                prob = new ProgramaBean();
+                rtb = new RatingBean();
+
+                EncuestaBean encb = new EncuestaBean();
+                encb.setIdencuesta(rs.getInt(1));
+                userb.setNombre(rs.getString(2));
+                encb.setIdusuario(userb);
+                prob.setNombreprograma(rs.getString(3));
+                encb.setIdprograma(prob);
+                rtb.setNombrerating(rs.getString(4));
+                encb.setIdrating(rtb);
+                lista.add(encb);
+            }
+            return lista;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    public List<EncuestaBean> mostrardosestrellas() throws SQLException {
+        List<EncuestaBean> lista = new LinkedList<>();
+
+        String sql = "select e.idencuesta, u.nombre, pro.nombreprograma, r.nombrerating from encuesta e\n"
+                + "inner join usuario u on e.idusuario = u.idusuario\n"
+                + "inner join programa pro on e.idprograma = pro.idprograma\n"
+                + "inner join rating r on  e.idrating = r.idrating";
+
+        try {
+            ps = conn.conectar().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                userb = new UsuarioBean();
+                prob = new ProgramaBean();
+                rtb = new RatingBean();
+
+                EncuestaBean encb = new EncuestaBean();
+                encb.setIdencuesta(rs.getInt(1));
+                userb.setNombre(rs.getString(2));
+                encb.setIdusuario(userb);
+                prob.setNombreprograma(rs.getString(3));
+                encb.setIdprograma(prob);
+                rtb.setNombrerating(rs.getString(4));
+                encb.setIdrating(rtb);
+                lista.add(encb);
+            }
+            return lista;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    public List<EncuestaBean> mostrarunaestrella() throws SQLException {
+        List<EncuestaBean> lista = new LinkedList<>();
+
+        String sql = "select e.idencuesta, u.nombre, pro.nombreprograma, r.nombrerating from encuesta e\n"
+                + "inner join usuario u on e.idusuario = u.idusuario\n"
+                + "inner join programa pro on e.idprograma = pro.idprograma\n"
+                + "inner join rating r on  e.idrating = r.idrating";
+
+        try {
+            ps = conn.conectar().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                userb = new UsuarioBean();
+                prob = new ProgramaBean();
+                rtb = new RatingBean();
+
+                EncuestaBean encb = new EncuestaBean();
+                encb.setIdencuesta(rs.getInt(1));
+                userb.setNombre(rs.getString(2));
+                encb.setIdusuario(userb);
+                prob.setNombreprograma(rs.getString(3));
+                encb.setIdprograma(prob);
+                rtb.setNombrerating(rs.getString(4));
+                encb.setIdrating(rtb);
+                lista.add(encb);
+            }
+            return lista;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    public List<EncuestaBean> mostrarceroestrellas() throws SQLException {
+        List<EncuestaBean> lista = new LinkedList<>();
+
+        String sql = "select e.idencuesta, u.nombre, pro.nombreprograma, r.nombrerating from encuesta e\n"
+                + "inner join usuario u on e.idusuario = u.idusuario\n"
+                + "inner join programa pro on e.idprograma = pro.idprograma\n"
+                + "inner join rating r on  e.idrating = r.idrating";
+
+        try {
+            ps = conn.conectar().prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                userb = new UsuarioBean();
+                prob = new ProgramaBean();
+                rtb = new RatingBean();
+
+                EncuestaBean encb = new EncuestaBean();
+                encb.setIdencuesta(rs.getInt(1));
+                userb.setNombre(rs.getString(2));
+                encb.setIdusuario(userb);
+                prob.setNombreprograma(rs.getString(3));
+                encb.setIdprograma(prob);
+                rtb.setNombrerating(rs.getString(4));
+                encb.setIdrating(rtb);
+                lista.add(encb);
+            }
+            return lista;
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+    
+    public List<EncuestaBean> conteo() throws SQLException {
         List<EncuestaBean> lista = new LinkedList<>();
 
         String sql = "select e.idencuesta, u.nombre, pro.nombreprograma, r.nombrerating from encuesta e\n"

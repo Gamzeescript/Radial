@@ -33,7 +33,7 @@
                 </div> 
             <div class="row">
                 <div class="col-6">
-                    <a href="menuprincipal.jsp" class="texto"><h4 id="imagen">Radio Admin</h4></a>
+                    <a href="login.jsp" class="texto"><h4 id="imagen">Radio Admin</h4></a>
                 </div>    
                 
                  <div class="col-6">

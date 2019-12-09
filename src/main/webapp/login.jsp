@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Radio Hazbin - Quality Survey</title>
+        <title>Radio Hazbin -</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="css/Themebodies.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -28,9 +28,13 @@
                             <label id="textoblanco">Password:</label>
                         <input type="password" class="form-control form-control-sm" name="pass"/><br/><br/> 
                         </div>
-                        <input type="submit" style="text-align: center;"  id="textoblanco" class="btn" value="primary" style="background-color: #FFFFFF" name="action" value="Ingresar">
+                        <div class="form-group text-center">
+                        <input type="submit" style="text-align: center;"  id="textoblanco" class="btn form-group text-center" value="Entrar" style="background-color: #FFFFFF" name="action">
                         <label id="textolabels">${msg}</label>
                     </form>
+                    <br>
+                    <a href="newuser.jsp" id="textolabels">Crear cuenta</a>
+                    </div>
                 </div>
             </div>
         </div>

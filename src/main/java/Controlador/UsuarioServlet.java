@@ -63,7 +63,7 @@ public class UsuarioServlet extends HttpServlet {
         if(res){            
             HttpSession session= request.getSession();
             session.setAttribute("usuario", usuario);
-            response.sendRedirect("Index.jsp");
+            response.sendRedirect("menuprincipal.jsp");
         }else{
             msg = "Usuario o clave incorrecta.";
             request.setAttribute("msg", msg);
@@ -180,6 +180,17 @@ public class UsuarioServlet extends HttpServlet {
         rd = request.getRequestDispatcher("/detalleusuario.jsp");
         rd.forward(request, response);
 
+    }
+    
+    protected void salir(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+       
+       if(session != null){
+           session.invalidate();
+           rd = request.getRequestDispatcher("Index.jsp");
+           rd.forward(request, response);
+       }
     }
 
     @Override

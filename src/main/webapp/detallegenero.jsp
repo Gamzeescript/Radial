@@ -6,6 +6,16 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page session="true" %>
+<%
+    HttpSession sesion = request.getSession();
+    String usuario;
+    if(sesion.getAttribute("usuario")!=null){
+        usuario = sesion.getAttribute("usuario").toString();
+    }else{
+        response.sendRedirect("login.jsp");
+    }
+%>
 <!DOCTYPE html>
 <!-- ==============================
     Project:        Metronic "Asentus" Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
