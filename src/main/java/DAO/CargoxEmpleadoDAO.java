@@ -14,7 +14,6 @@ public class CargoxEmpleadoDAO {
 
     Conexion conn;
     ResultSet rs;
-
     PreparedStatement ps;
 
     public CargoxEmpleadoDAO(Conexion conn) {
@@ -25,8 +24,8 @@ public class CargoxEmpleadoDAO {
         List<CargoxEmpleadoBean> lista = new LinkedList<>();
 
         String sql = "select c.nombrecargo, e.nombre from cargoxempleado ce\n"
-                + "left join cargo c on ce.idcargo = c.idcargo \n"
-                + "left join empleado e on ce.idempleado = e.idempleado;";
+                + "inner join cargo c on ce.idcargo = c.idcargo \n"
+                + "inner join empleado e on ce.idempleado = e.idempleado";
 
         try {
             ps = conn.conectar().prepareStatement(sql);
@@ -41,6 +40,7 @@ public class CargoxEmpleadoDAO {
                 cxeb.setIdcargo(carb);
                 empb.setNombre(rs.getString(2));
                 cxeb.setIdempleado(empb);
+                lista.add(cxeb);
 
             }
             return lista;

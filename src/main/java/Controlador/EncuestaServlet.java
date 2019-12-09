@@ -92,7 +92,6 @@ public class EncuestaServlet extends HttpServlet {
         encb.setIdrating(ratb);
 
         res = encd.insertar(encb);
-        lista = encd.mostrar();
         
         if(res){
             msg = "¡Gracias por tu participacion!";

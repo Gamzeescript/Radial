@@ -1,144 +1,78 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<!-- ==============================
+    Project:        Metronic "Asentus" Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
+    Version:        1.0
+    Author:         KeenThemes
+    Primary use:    Corporate, Business Themes.
+    Email:          support@keenthemes.com
+    Follow:         http://www.twitter.com/keenthemes
+    Like:           http://www.facebook.com/keenthemes
+    Website:        http://www.keenthemes.com
+    Premium:        Premium Metronic Admin Theme: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+================================== -->
+<html lang="en" class="no-js">
+    <!-- BEGIN HEAD -->
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.js" type="text/javascript"></script>
-        <script src="js/bootstrap.bundle.js" type="text/javascript"></script>
-        <link href="css/menucss.css" rel="stylesheet" type="text/css"/>
-        <link href="font/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> 
-        <title>Registro Peliculas</title>
+        <meta charset="utf-8"/>
+        <title>Radio Hazbin</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+
+        <!-- GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+        <link href="vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/Themebodies.css" rel="stylesheet" type="text/css"/>
+         <link href="resources/iconos/iconos/iconos.css" rel="stylesheet" type="text/css"/>
+        
+        <!-- PAGE LEVEL PLUGIN STYLES -->
+        <link href="css/animate.css" rel="stylesheet">
+        <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- THEME STYLES -->
+        <link href="css/layout.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico"/>
     </head>
+    <!-- END HEAD -->
+
+    <!-- BODY -->
     <body>
-        <!-- seccion de menu -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-8" style="margin-left:-200px">
-                    <div class="nav-side-menu">
-                        <div class="brand">The Cinema - Admin Panel</div>
-                        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-
-                        <div class="menu-list">
-
-                            <ul id="menu-content" class="menu-content collapse out">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-dashboard fa-lg"></i> Volver al Portal de Cine
-                                    </a>
-                                </li>
-
-                                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                                    <a href="#"><i class="fa fa-gift fa-lg"></i> Administraci&oacute;n de Cines <span class="arrow"></span></a>
-                                </li>
-                                <ul class="sub-menu collapse" id="products">
-                                    <li class="active"><a href="#">Cines existentes</a></li>
-                                    <li><a href="butaca?action=mostrar">Salas de cine</a></li>
-                                    <li><a href="butaca?action=mostrar">Butacas</a></li>
-                                    <li><a href="butaca?action=mostrar">Formatos existentes</a></li>
-                                    <li><a href="butaca?action=mostrar">Funciones</a></li>
-                                    <li><a href="butaca?action=mostrar">Promoci&oacute;n</a></li>
-                                </ul>
-
-                                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                                    <a href="#"><i class="fa fa-gift fa-lg"></i>Administraci&oacute;n de peliculas<span class="arrow"></span></a>
-                                </li>
-                                <ul class="sub-menu collapse" id="products">
-                                    <li class="active"><a href="#">Peliculas Disponibles</a></li>
-                                    <li><a href="titulo?action=mostrar">Titulos de peliculas</a></li>
-                                    <li><a href="genero?action=mostrar">Genero</a></li>
-                                    <li><a href="actor?action=mostrar">Actores</a></li>
-                                    <li><a href="director?action=mostrar">Directores</a></li>
-                                    <li><a href="reparto?action=mostrar">Reparto de pel&iacute;culas</a></li>
-                                    <li><a href="clasificacion?action=mostrar">Clasificaci&oacute;n</a></li>
-                                    <li><a href="calificacion?action=mostrar">Calificaci&oacute;n</a></li>
-
-                                </ul>
-
-                                <li data-toggle="collapse" data-target="#service" class="collapsed">
-                                    <a href="#"><i class="fa fa-globe fa-lg"></i>Otros ajustes<span class="arrow"></span></a>
-                                </li>  
-                                <ul class="sub-menu collapse" id="service">
-                                    <li>Idiomas</li>
-                                    <li>Paises</li>
-                                </ul>
-
-
-                                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                                    <a href="#"><i class="fa fa-car fa-lg"></i><span class="arrow">Ticketeria</span></a>
-                                </li>
-                                <ul class="sub-menu collapse" id="new">
-                                    <li>Ver tickets</li>
-                                    <li>Reserva de Tickets</li>
-                                    <li>Compra de Tickets</li>
-                                </ul>
-
-
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user fa-lg"></i> Usuarios
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users fa-lg"></i> Secci&oacute;n de opiniones
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- fin de menu -->
-            
-            <!-- Inicio de tabla -->
-            
-            
+         <!--include de mi header  -->
+        <jsp:include page="/menu.jsp"/>
+          
+            <!--========== tabla ==========-->
+            <div class="container">
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-8">
-                    <h1>Listado de Peliculas</h1>
-                    <table class="table table-bordered">
-                        <thead>
+                    <h1 class="texto">Listado de Empleado</h1>
+                    <table class="table table-light">
+                        <thead id="textoblanco">
                             <tr>
-                                <td>id Pelicula</td>
-                                <td>Titulo</td>
-                                <td>Idioma</td>
-                                <td>Pais</td>
-                                <td>Anio</td>
-                                <td>Duracion</td>
-                                <td>Clasificacion</td>
-                                <td>Fecha de Estreno</td>
-                                <td>Descripcion</td>
-                                <td>Imagen</td>
+                                <td>id Empleado</td>
+                                <td>Nombre</td>
+                                <td>Cedula</td>
+                                 <td>Productora</td>
                                 <td>Acciones</td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <c:forEach items="${lista}" var="p">
+                        <tbody id="textoblanco">
+                            <c:forEach items="${lista}" var="em">
                                 <tr>
-                                    <td>${p.idpelicula}</td>
-                                    <td>${p.idtitulo.titulooriginal}</td>
-                                    <td>${p.ididioma.nombreidioma}</td>
-                                    <td>${p.idpais.nombrepais}</td>
-                                    <td>${p.anio}</td>
-                                    <td>${p.duracion}</td>
-                                    <td>${p.idclasificacion.nombreclasificacion}</td>
-                                    <td>${p.fechaestreno}</td>
-                                    <td>${p.descripcion}</td>
-                                    <td>${p.imagen}</td>
+                                    <td>${em.idempleado}</td>
+                                    <td>${em.nombre}</td>
+                                    <td>${em.cedula}</td>
+                                    <td>${em.idproductora.nombreproductora}</td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${p.idpelicula}', '${p.idtitulo}', '${p.ididioma}', '${p.idpais}', '${p.anio}', '${p.duracion}', '${p.idclasificacion}', '${p.fechaestreno}', '${p.descripcion}', '${p.imagen}')">Actualizar</button>
-                                        <button type="button" class="btn btn-outline-danger"  onclick="alerta_eliminar(${p.idpelicula})"><a>Eliminar</a></button>
+                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${em.idempleado}', '${em.nombre}', '${em.cedula}', '${em.idproductora}')">Actualizar</button>
+                                        <button type="button" class="btn btn-outline-danger"  onclick="alerta_eliminar(${em.idempleado})"><a>Eliminar</a></button>
                                     </td>
                                 </tr>
                             </c:forEach>                                
@@ -146,193 +80,177 @@
                     </table>    
                     <br><br>
                     <!-- Trigger -->
-                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Agregar  pelicula</button>
+                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Registro Empleados</button>
 
-                    </div>
-                
-                    <!-- mi modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Registrar Pelicula</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form  method="POST" action="pelicula?action=insertar">
+                </div>
+
+                <!-- mi modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Registro Empleados</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form  method="POST" action="empleado?action=insertar">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Nombre Empleado:</label>
+                                        <input type="text" class="form-control" name="nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Cedula:</label>
+                                        <input type="text" class="form-control" name="cedula">
+                                    </div>
                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
+                                            <label for="recipient-name" class="col-form-label">Casa Productora:</label>
+                                            <select name="idproductora" id="idproductora">
+                                                <option value="">-- Seleccione una opcion--</option>
+                                                <c:forEach items="${listaproductora}" var="pd">
+                                                    <option value="${pd.idproductora}">${pd.nombreproductora}</option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">edad:</label>
-                                            <input type="text" class="form-control" name="edad" type="number" max="2">
-                                        </div>
-                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">email:</label>
-                                            <input type="text" class="form-control" name="email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Pais:</label>
-                                            <select name="idpais">
-                                            <c:forEach items="${listapais}" var="p">
-                                                <option value="${p.idpais}">${p.nombrepais}</option>
-                                            </c:forEach>
-                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">edad:</label>
-                                            <input type="text" class="form-control" name="edad" type="number" max="2">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">edad:</label>
-                                            <input type="text" class="form-control" name="edad" type="number" max="2">
-                                        </div>
-                                        
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>
                                             <button class="btn btn-outline-info" onclick="reload(true)">Guardar</button>
                                         </div>
-                                    </form>
-                                </div>
-
-
-
-
+                                </form>
                             </div>
+
+
+
+
                         </div>
                     </div>
+                </div>
 
 
 
-                    <!-- fin modal -->     
+                <!-- fin modal -->     
 
 
-                    <!-- Modal para actualizar -->
+                <!-- Modal para actualizar -->
 
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">Actualizar Usuarios</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form  method="POST" action="usuario?action=actualizar">
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Actualizar Produccion</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form  method="POST" action="empleado?action=actualizar">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Id Empleado:</label>
+                                        <input type="text" class="form-control" name="idempleado" id="idempleado" readonly="readonly">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Nombre Empleado:</label>
+                                        <input type="text" class="form-control" name="nombre" id="nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Cedula:</label>
+                                        <input type="text" class="form-control" name="cedula" id="cedula">
+                                    </div>
                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">id usuario:</label>
-                                            <input type="text" class="form-control" name="idusuario" id="idusuario" readonly="readonly">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Nombre:</label>
-                                            <input type="text" class="form-control" name="nombre" id="nombre">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Apellido:</label>
-                                           <input type="text" class="form-control" name="apellido" id="apellido">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Usuario:</label>
-                                            <input type="text" class="form-control" name="usuario" id="usuario">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Edad:</label>
-                                            <input type="text" class="form-control" name="edad" id="edad">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="col-form-label">Email:</label>
-                                            <input type="text" class="form-control" name="email" id="email">
+                                            <label for="recipient-name" class="col-form-label">Casa Productora:</label>
+                                            <select name="idproductora" id="idproductora">
+                                                <c:forEach items="${listaproductora}" var="pd">
+                                                    <option value="${pd.idproductora}">${pd.nombreproductora}</option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>
-                                            <button class="btn btn-outline-info" onclick="reload(true)">Actualizar</button>
+                                            <button class="btn btn-outline-info" onclick="reload(true)">Guardar</button>
                                         </div>
-                                    </form>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <!-- fin de modal de actualizar -->
-                    
-                    
-                    <!-- Inicio de mis scripts -->
+                <!-- fin de modal de actualizar -->
 
-                    <script>
-                        /* Apertura de modal con Jquery */
 
-                        $('#.bd-example-modal-lg').modal(options);
+                <!-- Inicio de mis scripts -->
 
-                    </script>
+                <script>
+                    /* Apertura de modal con Jquery */
 
-                    <script type="text/javascript">
-                        function editar(idusuario, nombre, apellido, usuario, edad, email) {
+                    $('#.bd-example-modal-lg').modal(options);
 
-                            /* Tomando los valores desde el javascript */
-                            document.getElementById("idusuario").value = idusuario;
-                            document.getElementById("nombre").value = nombre;
-                            document.getElementById("apellido").value = apellido;
-                            document.getElementById("usuario").value = usuario;
-                            document.getElementById("edad").value = edad;
-                            document.getElementById("email").value = email;
+                </script>
 
-                        }
-                    </script>
-                    <script>
-                          function alerta_eliminar(idusuario) {
-                    Swal.fire({
-                    title: 'De verdad, de verdad ¿quieres eliminar esta vaina?',
-                    text: 'Sabemos de antemano que esta es una mala practica ¿Has pensado en solo ocultarlo? bueno... Procede si estas conciente de las consecuencias',
-                    icon: 'warning',
-                    cancelButtonText: "Cancelar",
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, Eliminar'
-                }).then((result) => {
-                    if (result.value) {
-                        window.location.href = "usuario?action=eliminar&idusuario=" + idusuario;
+                <script type="text/javascript">
+
+                    $(document).ready(function () {
+                        $('select').formSelect();
+                    });
+
+                    function editar(idempleado, nombre, cedula, idproductora) {
+
+                        /* Tomando los valores desde el javascript */
+                        document.getElementById("idempleado").value = idempleado;
+                        document.getElementById("nombre").value = nombre;
+                        document.getElementById("cedula").value = cedula;
+                        document.getElementById("idproductora").value = idproductora;
+
                     }
-                })
-            }
+                </script>
+                <script>
+                    function alerta_eliminar(idempleado) {
+                        Swal.fire({
+                            title: 'ATENCION: esta a punto de borrar un registro',
+                            text: 'Esta accion no puede deshacerse',
+                            icon: 'warning',
+                            cancelButtonText: "Cancelar",
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Si, Eliminar'
+                        }).then((result) => {
+                            if (result.value) {
+                                window.location.href = "empleado?action=eliminar&idempleado=" + idempleado;
+                            }
+                        })
+                    }
 
 
-                    </script>
+                </script>
                     
                     
                      <!-- fin de mis scripts -->
-                    
-                    
-                </div>
-            </div>
-        </div>
+                     
+                 <!-- Back To Top -->
+        <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+
+        <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- CORE PLUGINS -->
+        <script src="vendor/jquery.min.js" type="text/javascript"></script>
+        <script src="vendor/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL PLUGINS -->
+        <script src="vendor/jquery.easing.js" type="text/javascript"></script>
+        <script src="vendor/jquery.back-to-top.js" type="text/javascript"></script>
+        <script src="vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
+        <script src="vendor/jquery.wow.min.js" type="text/javascript"></script>
+        <script src="vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+        <script src="vendor/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+        <script src="vendor/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL SCRIPTS -->
+        <script src="js/layout.min.js" type="text/javascript"></script>
+        <script src="js/components/wow.min.js" type="text/javascript"></script>
+        <script src="js/components/swiper.min.js" type="text/javascript"></script>
+        <script src="js/components/masonry.min.js" type="text/javascript"></script>
+
     </body>
+    <!-- END BODY -->
 </html>
-
-
-
 
 

@@ -17,6 +17,24 @@ public class UsuarioDAO {
     public UsuarioDAO(Conexion conn) {
         this.conn = conn;
     }
+    
+    public boolean login(String usuario, String pass) {
+        try {
+            
+            String query = "select * from usuario where usuario=? and pass=?";
+            ps = this.conn.conectar().prepareStatement(query);           
+            ps.setString(1, usuario);
+            ps.setString(2, pass);           
+            rs = ps.executeQuery();           
+            while(rs.next()){
+                return true;
+            }           
+            return false;
+        } catch (Exception e) {
+          
+            return false;
+        }
+    }
        
     public boolean insertar(UsuarioBean userb) {
 
