@@ -64,7 +64,7 @@
 
                         <!-- Logo -->
                         <div class="logo">
-                            <a class="logo-wrap" href="menuprincipal.jsp">
+                            <a class="logo-wrap" href="Indexgeneral.jsp">
                                 <img class="logo-img logo-img-main" src="img/radio-on-button.png" alt="logo">
                                 <img class="logo-img logo-img-active" src="img/radio-on-button.png" alt="Asentus Logo">
                             </a>
@@ -76,11 +76,11 @@
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
                             <ul class="navbar-nav navbar-nav-right">
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="indexgeneral.jsp">Inicio</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargo?action=mostrar">Programas</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="Indexgeneral.jsp">Inicio</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="programa?action=mostrargeneral">Programas</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="empleado?action=mostrar">Radio en linea</a></li>
-                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargoxempleado?action=mostrar">Encuesta</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="cargoxempleado?action=mostrar">Iniciar Sesion</a></li>
+                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="encuesta?action=encuestageneral">Encuesta</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="logingeneral.jsp">Iniciar Sesion</a></li>
                             </ul>
                         </div>
                     </div>
@@ -182,7 +182,6 @@
         <div class="row" id="micolordiv">
             <div class="col-12" >
                 <p id="textoblanco">Made with <i class="fa fa-heart" aria-hidden="true"></i> by Gamzeescript</p>  
-                <p id="textoblanco"><a href="Index.jsp">Cerrar Sesion</a></p>  
             </div>
         </div>
 

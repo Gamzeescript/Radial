@@ -62,7 +62,7 @@
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-8">
-                    <h1>Escala de Rating</h1>
+                    <h1 id="textoblanco">Escala de Rating</h1>
                     <table class="table table-light">
                         <thead id="textoblanco">
                             <tr>

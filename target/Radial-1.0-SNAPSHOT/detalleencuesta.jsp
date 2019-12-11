@@ -64,22 +64,61 @@
                 <div class="col-4"></div>
                 <div class="col-8">
                     <h1 class="texto">Registro de resultados de encuesta</h1>
+                    <label id="textoblanco">Total de Encuestados:</label>
+                    <c:forEach items="${listatotal}" var="t">
+                        <label id="textoblanco">${t.idusuario.idusuario}</label>
+                    </c:forEach>           
+                        <br>
+                        <!-- division para no perderme-->
+                        <label id="textoblanco">Programa con 5 estrellas:</label>
+                    <c:forEach items="${listacinco}" var="t">
+                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    </c:forEach>   
+                          <br>
+                        <!-- division para no perderme-->
+                        <label id="textoblanco">Programacion con 4 estrellas:</label>
+                    <c:forEach items="${listacuatro}" var="t">
+                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    </c:forEach> 
+                          <br>
+                          <!-- division para no perderme-->
+                        <label id="textoblanco">Programacion con 3 estrellas:</label>
+                    <c:forEach items="${listatres}" var="t">
+                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    </c:forEach>   
+                          <br>
+                        <!-- division para no perderme-->
+                        <label id="textoblanco">Programacion con 2 estrellas:</label>
+                    <c:forEach items="${listados}" var="t">
+                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    </c:forEach>       
+                          <br>
+                        <!-- division para no perderme-->
+                        <label id="textoblanco">Programacion con 1 estrellas:</label>
+                    <c:forEach items="${listauno}" var="t">
+                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    </c:forEach> 
+                          <br>
+                        <!-- division para no perderme-->
+                        <label id="textoblanco">Programacion sin estrellas:</label>
+                    <c:forEach items="${listacero}" var="t">
+                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    </c:forEach>   
+                          <br>
                     <table class="table table-light">
                         <thead id="textoblanco">
                             <tr>
                                 <td>id Encuesta</td>
-                                <td>Usuario</td>
                                 <td>Programa</td>
                                 <td>Rating</td>
                             </tr>
                         </thead>
                         <tbody id="textoblanco">
-                            <c:forEach items="${lista}" var="e">
+                            <c:forEach items="${lista}" var="l">
                                 <tr>
-                                    <td>${e.idencuesta}</td>
-                                    <td>${e.idusuario.usuario}</td>
-                                    <td>${e.idprograma.nombreprograma}</td>
-                                    <td>${e.idrating.nombrerating}</td>
+                                    <td>${l.idencuesta}</td>
+                                    <td>${l.idprograma.nombreprograma}</td>
+                                    <td>${l.idrating.nombrerating}</td>
                                 </tr>
                             </c:forEach>                                
                         </tbody>

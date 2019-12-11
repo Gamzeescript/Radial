@@ -34,6 +34,8 @@
                     </form>
                     <br>
                     <a href="newuser.jsp" id="textolabels">Crear cuenta</a>
+                    <br>
+                    <a href="Index.jsp" id="textolabels">Volver</a>
                     </div>
                 </div>
             </div>

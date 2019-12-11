@@ -40,6 +40,9 @@ public class ProgramaServlet extends HttpServlet {
             case "mostrar":
                 mostrar(request, response);
                 break;
+            case "mostrargeneral":
+                mostrargeneral(request, response);
+                break;
             case "actualizar":
                 actualizar(request, response);
                 break;
@@ -95,6 +98,19 @@ public class ProgramaServlet extends HttpServlet {
 
     }
 
+    protected void mostrargeneral(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException {
+
+        lista = prod.mostrar();
+
+        request.setAttribute("lista", lista);
+        request.setAttribute("listagenero", gend.mostrar());
+        request.setAttribute("listaradio", radd.mostrar());
+        rd = request.getRequestDispatcher("/detalleprogramageneral.jsp");
+        rd.forward(request, response);
+
+    }
+    
     protected void actualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, SQLException {
 

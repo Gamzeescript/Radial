@@ -81,8 +81,8 @@
                                     <td>${em.cedula}</td>
                                     <td>${em.idproductora.nombreproductora}</td>
                                     <td>
-                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${em.idempleado}', '${em.nombre}', '${em.cedula}', '${em.idproductora}')">Actualizar</button>
-                                        <button type="button" class="btn btn-outline-danger"  onclick="alerta_eliminar(${em.idempleado})"><a>Eliminar</a></button>
+                                        <button type="button" class="btn" value="primary" style="background-color: #708090"  data-toggle="modal" data-target="#exampleModalCenter" onclick="editar('${em.idempleado}', '${em.nombre}', '${em.cedula}', '${em.idproductora}')">Actualizar</button>
+                                        <button type="button" class="btn btn-danger"  onclick="alerta_eliminar(${em.idempleado})"><a>Eliminar</a></button>
                                     </td>
                                 </tr>
                             </c:forEach>                                
@@ -90,7 +90,7 @@
                     </table>    
                     <br><br>
                     <!-- Trigger -->
-                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">Registro Empleados</button>
+                    <button type="button" class="btn" value="primary" style="background-color: #FFFFFF" data-toggle="modal" data-target="#exampleModal">Registro Empleados</button>
 
                 </div>
 
@@ -190,25 +190,19 @@
 
                 <script>
                     /* Apertura de modal con Jquery */
-
                     $('#.bd-example-modal-lg').modal(options);
-
                 </script>
 
                 <script type="text/javascript">
-
                     $(document).ready(function () {
                         $('select').formSelect();
                     });
-
                     function editar(idempleado, nombre, cedula, idproductora) {
-
                         /* Tomando los valores desde el javascript */
                         document.getElementById("idempleado").value = idempleado;
                         document.getElementById("nombre").value = nombre;
                         document.getElementById("cedula").value = cedula;
                         document.getElementById("idproductora").value = idproductora;
-
                     }
                 </script>
                 <script>
@@ -228,8 +222,6 @@
                             }
                         })
                     }
-
-
                 </script>
                     
                     
@@ -262,5 +254,3 @@
     </body>
     <!-- END BODY -->
 </html>
-
-

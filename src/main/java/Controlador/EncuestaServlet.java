@@ -31,6 +31,13 @@ public class EncuestaServlet extends HttpServlet {
     boolean res;
     String msg = "";
     List<EncuestaBean> lista = new LinkedList<>();
+    List<EncuestaBean> listatotal = new LinkedList<>();
+    List<EncuestaBean> listacero = new LinkedList<>();
+    List<EncuestaBean> listauno = new LinkedList<>();
+    List<EncuestaBean> listados = new LinkedList<>();
+    List<EncuestaBean> listatres = new LinkedList<>();
+    List<EncuestaBean> listacuatro = new LinkedList<>();
+    List<EncuestaBean> listacinco = new LinkedList<>();
     EncuestaDAO encd = new EncuestaDAO(conn);
     UsuarioDAO userd = new UsuarioDAO(conn);
     ProgramaDAO prod = new ProgramaDAO(conn);
@@ -45,6 +52,9 @@ public class EncuestaServlet extends HttpServlet {
                 break;
             case "encuesta":
                 encuesta(request, response);
+                break;
+            case "encuestageneral":
+                encuestageneral(request, response);
                 break;
             case "mostrar":
                 mostrar(request, response);
@@ -71,6 +81,18 @@ public class EncuestaServlet extends HttpServlet {
         rd.forward(request, response);
         
     }
+    
+    protected void encuestageneral(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ParseException, SQLException {
+
+        request.setAttribute("listausuario", userd.mostrar());
+        request.setAttribute("listaprograma", prod.mostrar());
+        request.setAttribute("listarating", ratd.mostrar());
+        rd = request.getRequestDispatcher("/surveyratinggeneral.jsp");
+        rd.forward(request, response);
+        
+    }
+    
     
     protected void insertar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, SQLException {
@@ -110,12 +132,23 @@ public class EncuestaServlet extends HttpServlet {
     protected void mostrar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
 
+        listatotal = encd.conteo();
+        listacero = encd.mostrarceroestrellas();
+        listauno = encd.mostrarunaestrella();
+        listados = encd.mostrardosestrellas();
+        listatres = encd.mostrartresestrellas();
+        listacuatro = encd.mostrarcuatroestrellas();
+        listacinco = encd.mostrarcincoestrellas();
         lista = encd.mostrar();
 
         request.setAttribute("lista", lista);
-        request.setAttribute("listaclausuario", userd.mostrar());
-        request.setAttribute("listaprograma", prod.mostrar());
-        request.setAttribute("listarating", ratd.mostrar());
+        request.setAttribute("listatotal", listatotal);
+        request.setAttribute("listacero", listacero);
+        request.setAttribute("listauno", listauno);
+        request.setAttribute("listados", listados);
+        request.setAttribute("listatres", listatres);
+        request.setAttribute("listacuatro", listacuatro);
+        request.setAttribute("listacinco", listacinco);
         rd = request.getRequestDispatcher("/detalleencuesta.jsp");
         rd.forward(request, response);
 
@@ -193,4 +226,3 @@ public class EncuestaServlet extends HttpServlet {
         return "Short description";
     }
 }
-
