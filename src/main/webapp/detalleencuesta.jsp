@@ -71,32 +71,32 @@
                         <br>
                         <!-- division para no perderme-->
                         <label id="textoblanco">Programa con 5 estrellas:</label>
-                    <c:forEach items="${listacinco}" var="t">
-                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    <c:forEach items="${listacinco}" var="c">
+                        <label id="textoblanco">${c.idprograma.nombreprograma}</label>
                     </c:forEach>   
                           <br>
                         <!-- division para no perderme-->
                         <label id="textoblanco">Programacion con 4 estrellas:</label>
-                    <c:forEach items="${listacuatro}" var="t">
-                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    <c:forEach items="${listacuatro}" var="cu">
+                        <label id="textoblanco">${cu.idprograma.nombreprograma}</label>
                     </c:forEach> 
                           <br>
                           <!-- division para no perderme-->
                         <label id="textoblanco">Programacion con 3 estrellas:</label>
-                    <c:forEach items="${listatres}" var="t">
-                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    <c:forEach items="${listatres}" var="tre">
+                        <label id="textoblanco">${tre.idprograma.nombreprograma}</label>
                     </c:forEach>   
                           <br>
                         <!-- division para no perderme-->
                         <label id="textoblanco">Programacion con 2 estrellas:</label>
-                    <c:forEach items="${listados}" var="t">
-                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    <c:forEach items="${listados}" var="d">
+                        <label id="textoblanco">${d.idprograma.nombreprograma}</label>
                     </c:forEach>       
                           <br>
                         <!-- division para no perderme-->
                         <label id="textoblanco">Programacion con 1 estrellas:</label>
-                    <c:forEach items="${listauno}" var="t">
-                        <label id="textoblanco">${t.idprograma.nombreprograma}</label>
+                    <c:forEach items="${listauno}" var="u">
+                        <label id="textoblanco">${u.idprograma.nombreprograma}</label>
                     </c:forEach> 
                           <br>
                         <!-- division para no perderme-->
