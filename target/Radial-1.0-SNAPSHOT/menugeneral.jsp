@@ -79,7 +79,7 @@
                             <ul class="navbar-nav navbar-nav-right">
                                <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="Indexgeneral.jsp">Inicio</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="programa?action=mostrargeneral">Programas</a></li>
-                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="empleado?action=mostrar">Radio en linea</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="radio.jsp">Radio en linea</a></li>
                                  <li class="nav-item"><a class="nav-item-child nav-item-hover" href="encuesta?action=encuestageneral">Encuesta</a></li>
                                 <li class="nav-item"><a class="nav-item-child nav-item-hover" href="logingeneral.jsp">Iniciar Sesion</a></li>
                             </ul>

@@ -35,7 +35,7 @@
         <!-- GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
         <link href="vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/Themebodies.css" rel="stylesheet" type="text/css"/>
          <link href="resources/iconos/iconos/iconos.css" rel="stylesheet" type="text/css"/>
@@ -117,7 +117,7 @@
                                 <form  method="POST" action="emision?action=insertar">
                                     <div class="form-group">
                                         <label for="recipient-name" class="col-form-label">Prograna:</label>
-                                        <select name="idprograma" id="idprograma">
+                                        <select name="idprograma">
                                             <option value="">-- Seleccione una opcion--</option>
                                             <c:forEach items="${listaprograma}" var="c">
                                                 <option value="${c.idprograma}">${c.nombreprograma}</option>
@@ -146,13 +146,11 @@
                                     </div>
                                     <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Repeticion:</label>
-                                    <label class="switch">
-                                        <input type="checkbox" data-on="Yup" data-off="Nope" value="Nope">
-                                        <span class="slider round">
-                                            <span class="on">Si</span>
-                                            <span class="off">No</span>
-                                        </span>
-                                    </label>
+                                    <!-- Default switch -->
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" name="repeticion">
+                                        <label class="custom-control-label" for="customSwitches"></label>
+                                    </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>
@@ -192,11 +190,11 @@
                                     </div>
                                         <div class="form-group">
                                         <label for="recipient-name" class="col-form-label">Programa:</label>
-                                        <select name="idprograma" id="idprograma">
+                                            <select name="idprograma" id="idprograma">
                                             <c:forEach items="${listaprograma}" var="c">
                                                 <option value="${c.idprograma}">${c.nombreprograma}</option>
                                             </c:forEach>
-                                        </select>
+                                             </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="message-text" class="col-form-label">fecha inicio:</label>
@@ -216,17 +214,14 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="recipient-name" class="col-form-label">duracion:</label>
-                                        <input type="text" class="form-control" name="duracion" type="text" id="duracion">
+                                        <input type="text" class="form-control" name="duracion" id="duracion">
                                     </div>
                                     <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Repeticion:</label>
-                                    <label class="switch">
-                                        <input type="checkbox" name="repeticion" id="repeticion"  data-on="1" data-off="0">
-                                        <span class="slider round">
-                                        <span class="on">Si</span>
-                                        <span class="off">No</span>
-                                        </span>
-                                    </label>
+                                    <!-- Default switch -->
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="repeticion">
+                                    </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-dark" data-dismiss="modal">cerrar</button>
@@ -243,17 +238,15 @@
 
                     <script>
                         /* Apertura de modal con Jquery */
-
                         $('#.bd-example-modal-lg').modal(options);
                     </script>
 
                     <script type="text/javascript">
                     
-                        $(document).ready(function () {
-                                        $('select').formSelect();
-                        });
+                        $(document).ready(function(){
+                              $('select').formSelect();
+                          });
                         function editar(idemision, idprograma, fechainicio, horainicio, fechafin, horafin, duracion, repeticion) {
-
                              /* Tomando los valores desde el javascript */
                                 document.getElementById("idemision").value = idemision;
                                 document.getElementById("idprograma").value = idprograma;
@@ -282,13 +275,33 @@
                     }
                 })
             }
-
-
                     </script>
 
+
                     <!-- fin de mis scripts -->
-                </div>
-            </div>
-        </div>
+                    <!-- Back To Top -->
+        <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+
+        <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- CORE PLUGINS -->
+        <script src="vendor/jquery.min.js" type="text/javascript"></script>
+        <script src="vendor/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL PLUGINS -->
+        <script src="vendor/jquery.easing.js" type="text/javascript"></script>
+        <script src="vendor/jquery.back-to-top.js" type="text/javascript"></script>
+        <script src="vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
+        <script src="vendor/jquery.wow.min.js" type="text/javascript"></script>
+        <script src="vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+        <script src="vendor/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+        <script src="vendor/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL SCRIPTS -->
+        <script src="js/layout.min.js" type="text/javascript"></script>
+        <script src="js/components/wow.min.js" type="text/javascript"></script>
+        <script src="js/components/swiper.min.js" type="text/javascript"></script>
+        <script src="js/components/masonry.min.js" type="text/javascript"></script>
+
     </body>
 </html>

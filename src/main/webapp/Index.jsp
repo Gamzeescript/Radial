@@ -26,14 +26,14 @@
                         <img src="img/antenna.png" id="imagen"/>
                     </div>      
                     <div class="col-6">
-                        ´<div id="centrador">
+                        <div id="centrador">
                             <img src="img/survey.png" id="imagen"/> 
                     </div>
                         </div>
                 </div> 
             <div class="row">
                 <div class="col-6">
-                    <a href="login.jsp" class="texto"><h4 id="imagen">Radio Admin</h4></a>
+                    <a href="login.jsp"><h4 id="imagen">Radio Admin</h4></a>
                 </div>    
                 
                  <div class="col-6">
