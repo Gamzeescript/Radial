@@ -92,7 +92,7 @@ public class EmisionDAO {
 
     public boolean Actualizar(EmisionBean emb) {
 
-        String sql = "update cargo set idprograma=?, fechainicio=?, horainicio=?, fechafin=?, horafin=?, duracion=?, repeticion=?  where idemision=?";
+        String sql = "update emision set idprograma=?, fechainicio=?, horainicio=?, fechafin=?, horafin=?, duracion=?, repeticion=?  where idemision=?";
 
         prob = new ProgramaBean();
 

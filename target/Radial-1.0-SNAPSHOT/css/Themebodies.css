@@ -13,6 +13,11 @@ body{
     color: #ffffff;
     }
     
+.txtc {
+    color: #ffffff;
+    text-align: center;
+    }
+    
 #textolabels {
     color: #ffffff;
    }
@@ -35,6 +40,16 @@ body{
 #imagen{
     position: absolute;
     width: 100px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#imguc{
+    position: absolute;
+    width: 300px;
     top: 0;
     left: 0;
     right: 0;
