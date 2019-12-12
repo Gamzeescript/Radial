@@ -85,6 +85,7 @@ public class EncuestaDAO {
 
     }
 
+    
     public List<EncuestaBean> mostrarcincoestrellas() throws SQLException {
         List<EncuestaBean> lista = new LinkedList<>();
 
@@ -271,7 +272,7 @@ public class EncuestaDAO {
 
         String sql = "select\n"
                 + "count(u.idusuario) from encuesta e\n"
-                + "inner join usuario u on e.idusuario = u.idusuario;";
+                + "inner join usuario u on e.idusuario = u.idusuario";
 
         try {
             ps = conn.conectar().prepareStatement(sql);

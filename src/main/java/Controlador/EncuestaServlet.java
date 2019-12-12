@@ -82,6 +82,7 @@ public class EncuestaServlet extends HttpServlet {
         
     }
     
+    
     protected void encuestageneral(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, SQLException {
 
@@ -89,10 +90,8 @@ public class EncuestaServlet extends HttpServlet {
         request.setAttribute("listaprograma", prod.mostrar());
         request.setAttribute("listarating", ratd.mostrar());
         rd = request.getRequestDispatcher("/surveyratinggeneral.jsp");
-        rd.forward(request, response);
         
     }
-    
     
     protected void insertar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, SQLException {
