@@ -53,6 +53,9 @@ public class EncuestaServlet extends HttpServlet {
             case "encuesta":
                 encuesta(request, response);
                 break;
+            case "encuestageneral":
+                encuestageneral(request, response);
+                break;
             case "mostrar":
                 mostrar(request, response);
                 break;
@@ -79,80 +82,14 @@ public class EncuestaServlet extends HttpServlet {
         
     }
     
-    protected void encuestatotal(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException, SQLException {
-
-        listatotal = encd.conteo();
-
-        request.setAttribute("listatotal", listatotal);
-        rd = request.getRequestDispatcher("/detalleencuesta.jsp");
-        rd.forward(request, response);
-        
-    }
     
-    protected void encuestaceroestrellas(HttpServletRequest request, HttpServletResponse response)
+    protected void encuestageneral(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, SQLException {
 
-        listacero = encd.mostrarceroestrellas();
-        
-        request.setAttribute("listacero", listacero);
-        rd = request.getRequestDispatcher("/detalleencuesta.jsp");
-        rd.forward(request, response);
-        
-    }
-    
-    protected void encuestaunaestrellas(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException, SQLException {
-
-       listauno = encd.mostrarunaestrella();
-        
-        request.setAttribute("listauno", listauno);
-        rd = request.getRequestDispatcher("/detalleencuesta.jsp");
-        rd.forward(request, response);
-        
-    }
-    
-    protected void encuestadosestrellas(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException, SQLException {
-
-        listados = encd.mostrardosestrellas();
-        
-        request.setAttribute("listados", listados);
-        rd = request.getRequestDispatcher("/detalleencuesta.jsp");
-        rd.forward(request, response);
-        
-    }
-    
-    protected void encuestatresestrellas(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException, SQLException {
-
-        listatres = encd.mostrartresestrellas();
-        
-        request.setAttribute("listatres", listatres);
-        rd = request.getRequestDispatcher("/detalleencuesta.jsp");
-        rd.forward(request, response);
-        
-    }
-    
-    protected void encuestacuatroestrellas(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException, SQLException {
-
-        listacuatro = encd.mostrarcuatroestrellas();
-        
-        request.setAttribute("listacuatro", listacuatro);
-        rd = request.getRequestDispatcher("/detalleencuesta.jsp");
-        rd.forward(request, response);
-        
-    }
-    
-    protected void encuestacincoestrellas(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException, SQLException {
-
-        listacinco = encd.mostrarcincoestrellas();
-        
-        request.setAttribute("listacinco", listacinco);
-        rd = request.getRequestDispatcher("/detalleencuesta.jsp");
-        rd.forward(request, response);
+        request.setAttribute("listausuario", userd.mostrar());
+        request.setAttribute("listaprograma", prod.mostrar());
+        request.setAttribute("listarating", ratd.mostrar());
+        rd = request.getRequestDispatcher("/surveyratinggeneral.jsp");
         
     }
     
@@ -194,12 +131,23 @@ public class EncuestaServlet extends HttpServlet {
     protected void mostrar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
 
+        listatotal = encd.conteo();
+        listacero = encd.mostrarceroestrellas();
+        listauno = encd.mostrarunaestrella();
+        listados = encd.mostrardosestrellas();
+        listatres = encd.mostrartresestrellas();
+        listacuatro = encd.mostrarcuatroestrellas();
+        listacinco = encd.mostrarcincoestrellas();
         lista = encd.mostrar();
 
         request.setAttribute("lista", lista);
-        request.setAttribute("listaclausuario", userd.mostrar());
-        request.setAttribute("listaprograma", prod.mostrar());
-        request.setAttribute("listarating", ratd.mostrar());
+        request.setAttribute("listatotal", listatotal);
+        request.setAttribute("listacero", listacero);
+        request.setAttribute("listauno", listauno);
+        request.setAttribute("listados", listados);
+        request.setAttribute("listatres", listatres);
+        request.setAttribute("listacuatro", listacuatro);
+        request.setAttribute("listacinco", listacinco);
         rd = request.getRequestDispatcher("/detalleencuesta.jsp");
         rd.forward(request, response);
 
@@ -277,4 +225,3 @@ public class EncuestaServlet extends HttpServlet {
         return "Short description";
     }
 }
-
