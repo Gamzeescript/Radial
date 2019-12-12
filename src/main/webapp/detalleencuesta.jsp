@@ -64,6 +64,7 @@
                 <div class="col-4"></div>
                 <div class="col-8">
                     <h1 class="texto">Registro de resultados de encuesta</h1>
+                          
                     <table class="table table-light">
                         <thead id="textoblanco">
                             <tr>
